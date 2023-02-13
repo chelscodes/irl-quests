@@ -1,0 +1,22 @@
+{
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client",
+    "e2e"
+  ],
+  "scripts": {
+    "build:client": "yarn workspace life-quests-client build",
+    "dev": "yarn workspace life-quests-server dev",
+    "dev:debug": "yarn workspace life-quests-server dev:debug",
+    "heroku-postbuild": "yarn workspace life-quests-client build",
+    "start": "yarn workspace life-quests-server start",
+    "dev:cypress": "yarn workspace life-quests-server dev:e2e",
+    "e2e:open": "yarn workspace life-quests-e2e e2e:open",
+    "e2e:run": "yarn workspace life-quests-e2e e2e:run"
+  },
+  "engines": {
+    "node": "^16.18"
+  }
+}
