@@ -5,6 +5,7 @@ import config from "../../config";
 const RegistrationForm = () => {
   const [userPayload, setUserPayload] = useState({
     email: "",
+    username: "",
     password: "",
     passwordConfirmation: "",
   });
@@ -15,7 +16,7 @@ const RegistrationForm = () => {
 
   const validateInput = (payload) => {
     setErrors({});
-    const { email, password, passwordConfirmation } = payload;
+    const { email, username, password, passwordConfirmation } = payload;
     const emailRegexp = config.validation.email.regexp;
     let newErrors = {};
     if (!email.match(emailRegexp)) {
@@ -25,7 +26,14 @@ const RegistrationForm = () => {
       };
     }
 
-    if (password.trim() == "") {
+    if (username.trim() === "") {
+      newErrors = {
+        ...newErrors,
+        username: "is required",
+      };
+    }
+
+    if (password.trim() === "") {
       newErrors = {
         ...newErrors,
         password: "is required",
@@ -87,13 +95,20 @@ const RegistrationForm = () => {
 
   return (
     <div className="grid-container">
-      <h1>Register</h1>
-      <form onSubmit={onSubmit}>
+      <h1 className="header text-center">Register</h1>
+      <form onSubmit={onSubmit} className="form-section form-section--outline">
         <div>
           <label>
             Email
             <input type="text" name="email" value={userPayload.email} onChange={onInputChange} />
             <FormError error={errors.email} />
+          </label>
+        </div>
+        <div>
+          <label>
+            Username
+            <input type="text" name="username" value={userPayload.username} onChange={onInputChange} />
+            <FormError error={errors.username} />
           </label>
         </div>
         <div>
@@ -120,7 +135,7 @@ const RegistrationForm = () => {
             <FormError error={errors.passwordConfirmation} />
           </label>
         </div>
-        <div>
+        <div className="text-center">
           <input type="submit" className="button" value="Register" />
         </div>
       </form>

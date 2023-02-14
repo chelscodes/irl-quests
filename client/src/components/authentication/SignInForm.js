@@ -67,8 +67,8 @@ const SignInForm = () => {
 
   return (
     <div className="grid-container" onSubmit={onSubmit}>
-      <h1>Sign In</h1>
-      <form>
+      <h1 className="header text-center">Sign In</h1>
+      <form className="form-section form-section--outline">
         <div>
           <label>
             Email
@@ -88,7 +88,7 @@ const SignInForm = () => {
             <FormError error={errors.password} />
           </label>
         </div>
-        <div>
+        <div className="text-center">
           <input type="submit" className="button" value="Sign In" />
         </div>
       </form>
