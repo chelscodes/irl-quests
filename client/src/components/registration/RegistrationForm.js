@@ -135,7 +135,7 @@ const RegistrationForm = () => {
             <FormError error={errors.passwordConfirmation} />
           </label>
         </div>
-        <div>
+        <div className="text-center">
           <input type="submit" className="button" value="Register" />
         </div>
       </form>
