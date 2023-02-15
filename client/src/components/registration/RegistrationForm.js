@@ -9,7 +9,7 @@ const RegistrationForm = () => {
     password: "",
     passwordConfirmation: "",
   });
-
+  
   const [errors, setErrors] = useState({});
 
   const [shouldRedirect, setShouldRedirect] = useState(false);
@@ -54,14 +54,15 @@ const RegistrationForm = () => {
       }
     }
 
-    setErrors(newErrors);
+    setErrors(newErrors)
+    return newErrors
   };
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    validateInput(userPayload);
+    const potentialErrors = validateInput(userPayload);
     try {
-      if (Object.keys(errors).length === 0) {
+      if (Object.keys(potentialErrors).length === 0) {
         const response = await fetch("/api/v1/users", {
           method: "post",
           body: JSON.stringify(userPayload),
