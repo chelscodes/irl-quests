@@ -18,7 +18,7 @@ const SignInForm = () => {
     const potentialErrors = FormValidations.signInForm(userPayload)
     setErrors(potentialErrors)
     try {
-      if (potentialErrors.length === 0) {
+      if (Object.keys(potentialErrors).length === 0) {
         const response = await fetch("/api/v1/user-sessions", {
           method: "post",
           body: JSON.stringify(userPayload),
