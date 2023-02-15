@@ -1,39 +1,24 @@
 import React, { useState } from "react";
-import config from "../../config";
+import FormValidations from "../../services/FormValidations";
 import FormError from "../layout/FormError";
 
 const SignInForm = () => {
-  const [userPayload, setUserPayload] = useState({ email: "", password: "" });
-  const [shouldRedirect, setShouldRedirect] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [userPayload, setUserPayload] = useState({ 
+    email: "", 
+    password: "" 
+  })
 
-  const validateInput = (payload) => {
-    setErrors({});
-    const { email, password } = payload;
-    const emailRegexp = config.validation.email.regexp;
-    let newErrors = {};
-    if (!email.match(emailRegexp)) {
-      newErrors = {
-        ...newErrors,
-        email: "is invalid",
-      };
-    }
+  const [shouldRedirect, setShouldRedirect] = useState(false)
 
-    if (password.trim() === "") {
-      newErrors = {
-        ...newErrors,
-        password: "is required",
-      };
-    }
-
-    setErrors(newErrors);
-  };
+  const [errors, setErrors] = useState({})
 
   const onSubmit = async (event) => {
     event.preventDefault()
-    validateInput(userPayload)
+    setErrors({})
+    const potentialErrors = FormValidations.signInForm(userPayload)
+    setErrors(potentialErrors)
     try {
-      if (Object.keys(errors).length === 0) {
+      if (Object.keys(potentialErrors).length === 0) {
         const response = await fetch("/api/v1/user-sessions", {
           method: "post",
           body: JSON.stringify(userPayload),
