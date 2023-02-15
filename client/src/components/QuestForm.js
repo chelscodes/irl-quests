@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
-import FormError from "./layout/FormError";
+import React, { useState } from "react"
+import { Redirect } from "react-router-dom"
+import FormError from "./layout/FormError"
+import FormValidations from "../services/FormValidations"
 
 let newQuestId = null
 
@@ -13,21 +14,6 @@ const QuestForm = (props) => {
   const [errors, setErrors] = useState({})
 
   const [shouldRedirect, setShouldRedirect] = useState(false)
-  
-  const validateInput = (formInput) => {
-    setErrors({})
-    const { name } = formInput
-    let newErrors = {}
-
-    if (name.trim() === "") {
-      newErrors = {
-        ...newErrors,
-        name: "is required"
-      }
-    }
-    setErrors(newErrors)
-    return newErrors
-  }
 
   const addNewQuest = async () => {
     try {
@@ -54,7 +40,9 @@ const QuestForm = (props) => {
   
   const handleSubmit = (event) => {
     event.preventDefault()
-    const potentialErrors = validateInput(newQuest)
+    setErrors({})
+    const potentialErrors = FormValidations.questForm(newQuest)
+    setErrors(potentialErrors)
     if (Object.keys(potentialErrors).length === 0) {
       addNewQuest()
     }
