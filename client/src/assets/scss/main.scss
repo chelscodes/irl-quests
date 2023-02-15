@@ -2,6 +2,8 @@
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything;
 // place global css here
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 *,
 *::before,
 *::after {
@@ -18,6 +20,12 @@ $secondary: #bae0ce;
 $success: #9da616;
 $warning: #f6ce57;
 $alert: #f0573e;
+
+$font: 'Roboto', sans-serif;
+
+body {
+  font-family: $font;
+}
 
 .button {
   border-radius: 12px;
@@ -38,7 +46,9 @@ $alert: #f0573e;
 
 .header {
   padding: 20px 20px 0px 20px;
-  color: $primary
+  color: $primary;
+  font-family: $font;
+  font-weight: bold;
 }
 
 .quest-description {
