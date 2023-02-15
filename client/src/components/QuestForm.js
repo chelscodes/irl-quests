@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
+import FormError from "./layout/FormError";
 
 let newQuestId = null
 
@@ -9,8 +10,24 @@ const QuestForm = (props) => {
     description: ""
   })
 
+  const [errors, setErrors] = useState({})
+
   const [shouldRedirect, setShouldRedirect] = useState(false)
   
+  const validateInput = (formInput) => {
+    setErrors({})
+    const { name } = formInput
+    let newErrors = {}
+
+    if (name.trim() === "") {
+      newErrors = {
+        ...newErrors,
+        name: "is required"
+      }
+    }
+    setErrors(newErrors)
+    return newErrors
+  }
 
   const addNewQuest = async () => {
     try {
@@ -25,26 +42,29 @@ const QuestForm = (props) => {
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
         throw(error)
-      } else {
-        const body = await response.json()
-        newQuestId = body.quest.id
-        setShouldRedirect(true)
       }
+      const body = await response.json()
+      newQuestId = body.quest.id
+      setShouldRedirect(true)
     } catch (error) {
       console.error(`Fetch didn't happen: ${error.message}`)
     }
   }
   
+  
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const potentialErrors = validateInput(newQuest)
+    if (Object.keys(potentialErrors).length === 0) {
+      addNewQuest()
+    }
+  }
+ 
   const handleInputChange = (event) => {
     setNewQuest({
       ...newQuest,
       [event.currentTarget.name]: event.currentTarget.value
     })
-  }
-  
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    addNewQuest()
   }
   
   if (shouldRedirect) {
@@ -59,6 +79,7 @@ const QuestForm = (props) => {
           <label>
             Name
             <input type="text" name="name" value={newQuest.name} onChange={handleInputChange} />
+            <FormError error={errors.name} />
           </label>
           <label>
             Description
