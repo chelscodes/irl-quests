@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Redirect } from "react-router-dom"
 import FormError from "./layout/FormError"
 import FormValidations from "../services/FormValidations"
+import addNewQuest from "../services/apiClient/addNewQuest"
 
 let newQuestId = null
 
@@ -14,37 +15,19 @@ const QuestForm = (props) => {
   const [errors, setErrors] = useState({})
 
   const [shouldRedirect, setShouldRedirect] = useState(false)
-
-  const addNewQuest = async () => {
-    try {
-      const response = await fetch("/api/v1/quests", {
-        method: "post",
-        body: JSON.stringify(newQuest),
-        headers: new Headers({
-          "Content-Type": "application/json"
-        })
-      })
-      if (!response.ok) {
-        const errorMessage = `${response.status} (${response.statusText})`
-        const error = new Error(errorMessage)
-        throw(error)
-      }
-      const body = await response.json()
-      newQuestId = body.quest.id
-      setShouldRedirect(true)
-    } catch (error) {
-      console.error(`Fetch didn't happen: ${error.message}`)
-    }
-  }
   
-  
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
+    
     setErrors({})
     const potentialErrors = FormValidations.questForm(newQuest)
     setErrors(potentialErrors)
+
     if (Object.keys(potentialErrors).length === 0) {
-      addNewQuest()
+      newQuestId = await addNewQuest(newQuest, newQuestId)
+      if (newQuestId) {
+        setShouldRedirect(true)
+      }
     }
   }
  
