@@ -55,7 +55,7 @@ const RegistrationForm = () => {
   return (
     <div className="grid-container">
       <h1 className="header text-center">Register</h1>
-      <form onSubmit={onSubmit} className="form-section form-section--outline">
+      <form onSubmit={onSubmit} className="form__section form__section--outline">
         <div>
           <label>
             Email

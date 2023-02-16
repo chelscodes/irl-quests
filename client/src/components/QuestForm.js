@@ -46,7 +46,7 @@ const QuestForm = (props) => {
     <>
       <h2 className="header text-center">Create a New Quest</h2>
       <div>
-        <form className="form-section form-section--outline" onSubmit={handleSubmit}>
+        <form className="form__section form__section--outline" onSubmit={handleSubmit}>
           <label>
             Name
             <input type="text" name="name" value={newQuest.name} onChange={handleInputChange} />
