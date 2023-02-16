@@ -2,6 +2,7 @@ import express from "express"
 import objection from "objection"
 const { ValidationError } = objection
 import { Quest } from "../../../models/index.js"
+import QuestSerializer from "../../../serializers/QuestSerializer.js"
 
 const questsRouter = new express.Router()
 
@@ -25,7 +26,8 @@ questsRouter.get("/:id", async (req, res) => {
   const questId = req.params.id
   try {
     const quest = await Quest.query().findById(questId)
-    return res.status(200).json({ quest })
+    const serializedQuest = await QuestSerializer.getSummary(quest)
+    return res.status(200).json({ quest: serializedQuest })
   } catch (error) {
     console.log(error)
     return res.status(500).json({ errors: error })
