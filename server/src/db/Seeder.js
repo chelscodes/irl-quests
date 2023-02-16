@@ -2,6 +2,7 @@
 import { connection } from "../boot.js"
 import QuestSeeder from "./seeders/QuestSeeder.js"
 import UserSeeder from "./seeders/UserSeeder.js"
+import TaskSeeder from "./seeders/TaskSeeder.js"
 
 class Seeder {
   static async seed() {
@@ -11,6 +12,9 @@ class Seeder {
 
     console.log("...seeding quests")
     await QuestSeeder.seed()
+
+    console.log("...seeding tasks")
+    await TaskSeeder.seed()
 
     console.log("Done!")
     await connection.destroy()
