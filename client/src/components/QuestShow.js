@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react"
+import getQuestCurrentPoints from "../services/getQuestCurrentPoints"
 import TaskList from "./TaskList"
 
 const QuestShow = (props) => {
   const [quest, setQuest] = useState({
     name: "",
     description: "",
-    currentPoints: "",
-    tasks: []
   })
-  // const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState([])
+  const [currentPoints, setCurrentPoints] = useState(0)
 
   const questId = props.match.params.id
   const getQuestData = async () => {
@@ -19,7 +19,9 @@ const QuestShow = (props) => {
         throw(error)
       }
       const body = await response.json()
-      setQuest(body.quest)
+      const { name, description, tasks } = body.quest
+      setQuest({ name, description })
+      setTasks(tasks)
     } catch (error) {
       console.error(`Fetch didn't happen: ${error.message}`)
     }
@@ -29,13 +31,19 @@ const QuestShow = (props) => {
     getQuestData()
   }, [])
 
+  const calculatedPoints = getQuestCurrentPoints(tasks)
+  if (calculatedPoints !== currentPoints) {
+    setCurrentPoints(calculatedPoints)
+  }
+  
+  console.log(tasks)
   return (
     <div className="text-center">
       <h2 className="header">{quest.name}</h2>
-      <p>Your current points: {quest.currentPoints}</p>
-      <p className="quest-description">{quest.description}</p>
+      <p>Your current points: {currentPoints}</p>
+      <p className="quest__description">{quest.description}</p>
       <>
-        <TaskList tasks={quest.tasks} />
+        <TaskList tasks={tasks} setTasks={setTasks} questId={questId} />
       </>
     </div>
   )

@@ -56,8 +56,21 @@ body {
   color: #01acb5;
 }
 
+.task--easy, .task--trivial {
+  color: $success
+}
+
+.task--medium {
+  color: $warning
+}
+
+.task--hard {
+  color: $alert
+}
+
 .task--completed {
-  color: gray
+  color: gray;
+  text-decoration: line-through;
 }
 
 .top-bar, .top-bar ul{
