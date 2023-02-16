@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { hot } from "react-hot-loader/root";
 
-import getCurrentUser from "../services/getCurrentUser";
+import getCurrentUser from "../services/apiClient/getCurrentUser";
 import "../assets/scss/main.scss";
 import RegistrationForm from "./registration/RegistrationForm";
 import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
+import AuthenticatedRoute from "./authentication/AuthenticatedRoute"
 
 import QuestShow from "./QuestShow";
 import QuestForm from "./QuestForm";
@@ -35,7 +36,12 @@ const App = (props) => {
         </Route>
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
-        <Route exact path="/quests/new" component={QuestForm} />
+        <AuthenticatedRoute 
+          exact={true}
+          path="/quests/new"
+          component={QuestForm}
+          user={currentUser}
+        />
         <Route exact path="/quests/:id" component={QuestShow} />
       </Switch>
     </Router>

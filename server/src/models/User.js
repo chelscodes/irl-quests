@@ -22,12 +22,12 @@ class User extends uniqueFunc(Model) {
   authenticate(password) {
     return Bcrypt.compareSync(password, this.cryptedPassword);
   }
-
+  
   static get jsonSchema() {
     return {
       type: "object",
       required: ["email", "username"],
-
+      
       properties: {
         email: { type: "string", pattern: "^\\S+@\\S+\\.\\S+$" },
         username: { type: "string" },
@@ -35,15 +35,38 @@ class User extends uniqueFunc(Model) {
       },
     };
   }
-
+  
   $formatJson(json) {
     const serializedJson = super.$formatJson(json);
-
+    
     if (serializedJson.cryptedPassword) {
       delete serializedJson.cryptedPassword;
     }
-
+    
     return serializedJson;
+  }
+  
+  static relationMappings() {
+    const { Quest, Task } = require("./index.js")
+
+    return {
+      quests: {
+        relation: Model.HasManyRelation,
+        modelClass: Quest,
+        join: {
+          from: "users.id",
+          to: "quests.userId"
+        }
+      },
+      tasks: {
+        relation: Model.HasManyRelation,
+        modelClass: Task,
+        join: {
+          from: "users.id",
+          to: "tasks.userId"
+        }
+      }
+    }
   }
 }
 
