@@ -13,7 +13,6 @@ class Quest extends Model {
       properties: {
         name: { type: "string" },
         description: { type: "string" },
-        currentPoints: { type: ["string", "integer"] }
       }
     }
   }

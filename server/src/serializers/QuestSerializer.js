@@ -2,7 +2,7 @@ import TaskSerializer from "./TaskSerializer.js"
 
 class QuestSerializer {
   static async getSummary(quest) {
-    const allowedAttributes = ["id", "name", "description", "currentPoints", "userId"]
+    const allowedAttributes = ["id", "name", "description", "userId"]
 
     let serializedQuest = {}
     for (const attribute of allowedAttributes) {
