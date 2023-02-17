@@ -5,7 +5,6 @@ import TaskSerializer from "../../../serializers/TaskSerializer.js"
 const questsTasksRouter = new express.Router({ mergeParams: true })
 
 questsTasksRouter.patch("/:taskId", async (req, res) => {
-  // const questId = req.params.id
   const taskId = req.params.taskId
   const updatedCompletedStatus = req.body.updatedCompletedStatus
   try {

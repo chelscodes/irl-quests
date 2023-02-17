@@ -5,7 +5,6 @@ const getQuestCurrentPoints = (tasks) => {
       runningTotal += task.points
     }
   })
-  console.log(runningTotal)
   return runningTotal
 }
 
