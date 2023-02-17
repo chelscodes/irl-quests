@@ -36,7 +36,6 @@ const QuestShow = (props) => {
     setCurrentPoints(calculatedPoints)
   }
   
-  console.log(tasks)
   return (
     <div className="text-center">
       <h2 className="header">{quest.name}</h2>
