@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import FormError from "../layout/FormError";
 import FormValidations from "../../services/FormValidations";
 
@@ -97,6 +98,7 @@ const RegistrationForm = () => {
         <div className="text-center">
           <input type="submit" className="button" value="Register" />
         </div>
+        <p className="text-center"><Link to="/user-sessions/new">Already have an account? Sign in</Link></p>
       </form>
     </div>
   );
