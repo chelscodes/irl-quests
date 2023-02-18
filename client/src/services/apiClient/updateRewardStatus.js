@@ -1,22 +1,22 @@
-const updateTaskStatus = async (taskId, updatedCompletedStatus) => {
+const updateRewardStatus = async (id, updatedUsedStatus) => {
   try {
-    const response = await fetch(`/api/v1/tasks/${taskId}`, {
+    const response = await fetch(`/api/v1/rewards/${id}`, {
       method: "PATCH",
-      body: JSON.stringify({updatedCompletedStatus}),
+      body: JSON.stringify({updatedUsedStatus}),
       headers: new Headers({
         "Content-Type": "application/json"
       })
     })
-    if (!response.ok) {
+    if(!response.ok) {
       const errorMessage = `${response.status} (${response.statusText})`
       const error = new Error(errorMessage)
       throw(error)
     }
     const body = await response.json()
-    return body.updatedTask
+    return body.updatedReward
   } catch (error) {
     console.error(`Fetch didn't happen: ${error.message}`)
   }
 }
 
-export default updateTaskStatus
+export default updateRewardStatus

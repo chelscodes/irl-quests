@@ -18,7 +18,7 @@ class Quest extends Model {
   }
 
   static relationMappings() {
-    const { User, Task } = require("./index.js")
+    const { User, Task, Reward } = require("./index.js")
 
     return {
       user: {
@@ -35,6 +35,14 @@ class Quest extends Model {
         join: {
           from: "quests.id",
           to: "tasks.questId"
+        }
+      },
+      rewards: {
+        relation: Model.HasManyRelation,
+        modelClass: Reward,
+        join: {
+          from: "quests.id",
+          to: "rewards.questId"
         }
       }
     }

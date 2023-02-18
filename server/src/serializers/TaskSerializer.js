@@ -1,6 +1,6 @@
 class TaskSerializer {
   static async getSummary(task) {
-    const allowedAttributes = ["id", "name", "difficulty", "points", "completed"]
+    const allowedAttributes = ["id", "name", "difficulty", "completed"]
 
     let serializedTask = {}
     for (const attribute of allowedAttributes) {

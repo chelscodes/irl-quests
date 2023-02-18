@@ -1,7 +1,8 @@
 import React from "react";
+import getTaskPoints from "../services/getTaskPoints";
 
 const TaskTile = (props) => {
-  const { id, name, points, difficulty, completed } = props.task
+  const { id, name, difficulty, completed } = props.task
   const handleToggle = props.handleToggle
 
   let styling = ""
@@ -22,6 +23,8 @@ const TaskTile = (props) => {
       styling += "task--hard "
       break
   }
+
+  const points = getTaskPoints(difficulty)
 
   return (
     <div>

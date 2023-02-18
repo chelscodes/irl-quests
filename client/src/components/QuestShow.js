@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import getQuestCurrentPoints from "../services/getQuestCurrentPoints"
+import RewardList from "./RewardList"
 import TaskList from "./TaskList"
 
 const QuestShow = (props) => {
@@ -8,6 +9,7 @@ const QuestShow = (props) => {
     description: "",
   })
   const [tasks, setTasks] = useState([])
+  const [rewards, setRewards] = useState([])
   const [currentPoints, setCurrentPoints] = useState(0)
 
   const questId = props.match.params.id
@@ -19,9 +21,10 @@ const QuestShow = (props) => {
         throw(error)
       }
       const body = await response.json()
-      const { name, description, tasks } = body.quest
+      const { name, description, tasks, rewards } = body.quest
       setQuest({ name, description })
       setTasks(tasks)
+      setRewards(rewards)
     } catch (error) {
       console.error(`Fetch didn't happen: ${error.message}`)
     }
@@ -31,20 +34,25 @@ const QuestShow = (props) => {
     getQuestData()
   }, [])
 
-  const calculatedPoints = getQuestCurrentPoints(tasks)
+  const calculatedPoints = getQuestCurrentPoints(tasks, rewards)
   if (calculatedPoints !== currentPoints) {
     setCurrentPoints(calculatedPoints)
   }
   
-  console.log(tasks)
   return (
     <div className="text-center">
       <h2 className="header">{quest.name}</h2>
       <p>Your current points: {currentPoints}</p>
       <p className="quest__description">{quest.description}</p>
-      <>
-        <TaskList tasks={tasks} setTasks={setTasks} questId={questId} />
-      </>
+      <hr />
+      <div className="grid-x">
+        <div className="cell medium-6">
+          <TaskList tasks={tasks} setTasks={setTasks} />
+        </div>
+        <div className="cell medium-6">
+          <RewardList rewards={rewards} setRewards={setRewards} />
+        </div>
+      </div>
     </div>
   )
 }

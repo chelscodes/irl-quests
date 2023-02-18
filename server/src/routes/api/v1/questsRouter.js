@@ -3,7 +3,6 @@ import objection from "objection"
 const { ValidationError } = objection
 import { Quest } from "../../../models/index.js"
 import QuestSerializer from "../../../serializers/QuestSerializer.js"
-import questsTasksRouter from "./questsTasksRouter.js"
 
 const questsRouter = new express.Router()
 
@@ -23,7 +22,6 @@ questsRouter.post("/", async (req, res) => {
   }
 })
 
-
 questsRouter.get("/:id", async (req, res) => {
   const questId = req.params.id
   try {
@@ -35,7 +33,5 @@ questsRouter.get("/:id", async (req, res) => {
     return res.status(500).json({ errors: error })
   }
 })
-
-questsRouter.use("/:id/tasks", questsTasksRouter)
 
 export default questsRouter

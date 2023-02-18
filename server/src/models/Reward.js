@@ -1,19 +1,19 @@
 const Model = require("./Model")
 
-class Task extends Model {
+class Reward extends Model {
   static get tableName() {
-    return "tasks"
+    return "rewards"
   }
 
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["name", "difficulty"],
+      required: ["name", "motivationLevel"],
 
       properties: {
         name: { type: "string" },
-        difficulty: { type: ["string", "integer"] },
-        completed: { type: "boolean" }
+        motivationLevel: { type: ["string", "integer"] },
+        used: { type: "boolean" }
       }
     }
   }
@@ -26,7 +26,7 @@ class Task extends Model {
         relation: Model.BelongsToOneRelation,
         modelClass: User,
         join: {
-          from: "tasks.userId",
+          from: "rewards.userId",
           to: "users.id"
         }
       },
@@ -34,7 +34,7 @@ class Task extends Model {
         relation: Model.BelongsToOneRelation,
         modelClass: Quest,
         join: {
-          from: "tasks.questId",
+          from: "rewards.questId",
           to: "quests.id"
         }
       }
@@ -42,4 +42,4 @@ class Task extends Model {
   }
 }
 
-module.exports = Task
+module.exports = Reward
