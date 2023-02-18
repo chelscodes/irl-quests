@@ -7,6 +7,7 @@ import "../assets/scss/main.scss";
 import RegistrationForm from "./registration/RegistrationForm";
 import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
+import Footer from "./layout/Footer";
 import AuthenticatedRoute from "./authentication/AuthenticatedRoute"
 
 import QuestShow from "./QuestShow";
@@ -43,6 +44,7 @@ const App = (props) => {
         />
         <Route exact path="/quests/:id" component={QuestShow} />
       </Switch>
+      <Footer />
     </Router>
   );
 };
