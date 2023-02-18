@@ -2,5 +2,6 @@
 const User = require("./User.js")
 const Quest = require("./Quest.js")
 const Task = require("./Task.js")
+const Reward = require("./Reward.js")
 
-module.exports = {User, Quest, Task};
+module.exports = {User, Quest, Task, Reward};

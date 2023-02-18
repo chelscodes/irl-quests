@@ -1,4 +1,5 @@
 import TaskSerializer from "./TaskSerializer.js"
+import RewardSerializer from "./RewardSerializer.js"
 
 class QuestSerializer {
   static async getSummary(quest) {
@@ -15,6 +16,14 @@ class QuestSerializer {
       return serializedTask
     }))
     serializedQuest.tasks = tasks
+
+    const rewardsData = await quest.$relatedQuery("rewards")
+    const rewards = await Promise.all(rewardsData.map( async (reward) => {
+      const serializedReward = RewardSerializer.getSummary(reward)
+      return serializedReward
+    }))
+    serializedQuest.rewards = rewards
+
     return serializedQuest
   }
 }
