@@ -13,7 +13,6 @@ class Task extends Model {
       properties: {
         name: { type: "string" },
         difficulty: { type: ["string", "integer"] },
-        points: { type: ["string", "integer"] },
         completed: { type: "boolean" }
       }
     }

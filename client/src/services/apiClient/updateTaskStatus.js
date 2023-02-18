@@ -1,6 +1,6 @@
-const updateTaskStatus = async (taskId, updatedCompletedStatus, questId) => {
+const updateTaskStatus = async (taskId, updatedCompletedStatus) => {
   try {
-    const response = await fetch(`/api/v1/quests/${questId}/tasks/${taskId}`, {
+    const response = await fetch(`/api/v1/tasks/${taskId}`, {
       method: "PATCH",
       body: JSON.stringify({updatedCompletedStatus}),
       headers: new Headers({

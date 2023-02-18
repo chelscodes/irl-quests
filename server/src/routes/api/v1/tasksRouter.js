@@ -1,10 +1,10 @@
 import express from "express"
-import { Task, Quest } from "../../../models/index.js"
+import { Task } from "../../../models/index.js"
 import TaskSerializer from "../../../serializers/TaskSerializer.js"
 
-const questsTasksRouter = new express.Router({ mergeParams: true })
+const tasksRouter = new express.Router()
 
-questsTasksRouter.patch("/:taskId", async (req, res) => {
+tasksRouter.patch("/:taskId", async (req, res) => {
   const taskId = req.params.taskId
   const updatedCompletedStatus = req.body.updatedCompletedStatus
   try {
@@ -19,4 +19,4 @@ questsTasksRouter.patch("/:taskId", async (req, res) => {
   }
 })
 
-export default questsTasksRouter
+export default tasksRouter
