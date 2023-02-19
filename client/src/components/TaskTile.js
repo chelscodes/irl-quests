@@ -9,20 +9,6 @@ const TaskTile = (props) => {
   if (completed) {
     styling += "task--completed "
   }
-  // switch (difficulty) {
-  //   case (1):
-  //     styling += "task--trivial "
-  //     break
-  //   case (2):
-  //     styling += "task--easy "
-  //     break
-  //   case (3):
-  //     styling += "task--medium "
-  //     break
-  //   case (4):
-  //     styling += "task--hard "
-  //     break
-  // }
 
   const points = getTaskPoints(difficulty)
 
