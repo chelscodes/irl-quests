@@ -1,8 +1,33 @@
 import express from "express"
+import objection from "objection"
+const { ValidationError } = objection
 import { Task } from "../../../models/index.js"
 import TaskSerializer from "../../../serializers/TaskSerializer.js"
+import cleanUserInput from "../../../services/cleanUserInput.js"
 
 const tasksRouter = new express.Router()
+
+tasksRouter.post("/", async (req, res) => {
+  const cleanedTaskInput = cleanUserInput(req.body.newTaskInput)
+
+  const { name, difficulty } = cleanedTaskInput
+  const questId = req.body.questId
+  const userId = req.user.id
+  try {
+    const persistedTask = await Task.query().insertAndFetch({
+      name, difficulty, questId, userId
+    })
+    const serializedTask = TaskSerializer.getSummary(persistedTask)
+    return res.status(201).json({ newTask: serializedTask })
+  } catch (error) {
+    if (error instanceof ValidationError) {
+      console.log(error)
+      return res.status(422).json({ errors: error.data })
+    }
+    console.log(error)
+    return res.status(500).json({ errors: error })
+  }
+})
 
 tasksRouter.patch("/:taskId", async (req, res) => {
   const taskId = req.params.taskId
