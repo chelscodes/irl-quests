@@ -33,10 +33,10 @@ const TaskList = (props) => {
   })
     
   return (
-    <>
-      <h3>Tasks</h3>
+    <div className="list">
+      <h3 className="header list__header">TASKS</h3>
       {taskTiles}
-    </>
+    </div>
   )
 }
 

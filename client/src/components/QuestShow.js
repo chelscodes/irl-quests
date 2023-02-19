@@ -41,15 +41,14 @@ const QuestShow = (props) => {
   
   return (
     <div className="text-center">
-      <h2 className="header">{quest.name}</h2>
-      <p>Your current points: {currentPoints}</p>
+      <h2 className="header header--quest-title">{quest.name}</h2>
+      <p>current reward pts: <span className="bold--yellow">{currentPoints}</span></p>
       <p className="quest__description">{quest.description}</p>
-      <hr />
-      <div className="grid-x">
-        <div className="cell medium-6">
+      <div className="grid-x grid-margin-x">
+        <div className="cell small-12 medium-5 large-offset-1">
           <TaskList tasks={tasks} setTasks={setTasks} />
         </div>
-        <div className="cell medium-6">
+        <div className="cell small-12 medium-5">
           <RewardList rewards={rewards} setRewards={setRewards} />
         </div>
       </div>

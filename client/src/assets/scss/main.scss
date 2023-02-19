@@ -3,7 +3,7 @@
 @include foundation-everything;
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
 
 *,
 *::before,
@@ -17,39 +17,65 @@
 }
 
 $header-image-path: "../images/nature.jpeg";
-$primary: #2e4399;
-$secondary: #dbd0c5;
-$success: #9da616;
-$warning: #f6ce57;
-$alert: #f58232;
+$primary: #3061E2;
+$secondary: #F0EDE2;
+$success: #CFE4C5;
+$warning: #FABC3A;
+$alert: #FB8089;
 
-$blue: #2e4399;
-$tan: #eeece5;
-$dark-green: #314630;
-$light-orange: #fdc46e;
-$yellow: #fed602;
+$blue: #3061E2;
+$tan: #F0EDE2;
+$green: #CFE4C5;
+$orange: #FABC3A;
+$red: #FB8089;
 
+$font-logo: 'Abril Fatface', sans-serif;
+$font-header: 'Space Grotesk', sans-serif;
 $font-body: 'Montserrat', sans-serif;
-$font-header: 'Abril Fatface', sans-serif;
-$font-serif: 'Playfair Display', serif;
 
 body {
   font-family: $font-body;
-  background-color: $tan;
 }
 
-.app-name {
-  font-family: $font-header;
+a:hover {
+  color: black
+}
+
+.bold--yellow {
+  font-size: 1em;
+  font-weight: bold;
+  color: #f4a700;
 }
 
 .button {
-  border-radius: 12px;
+  border-radius: 20px;
+  border: black solid 1px;
+  font-family: $font-header;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
 }
 
-.button--yellow {
-  background-color: $yellow;
+.button:hover {
+  background-color: black;
+}
+
+.button__shadow {
+  border-radius: 0;
+  background-color: $orange;
   color: black;
   font-weight: bolder;
+  box-shadow: -4px -4px black;
+  border: 2px solid black;
+  margin: 15px;
+  
+  a {
+    color: black;
+  }
+}
+
+.button__shadow:hover {
+  background-color: $orange;
+  box-shadow: none;
 }
 
 .form__section {
@@ -63,57 +89,130 @@ body {
   padding: 20px;
   border-width: 1px;
   border-radius: 20px;
-  box-shadow: 0px 0px 0px 3px $secondary;
+  border: $orange solid 2px;
 }
 
 .header {
-  padding: 20px 20px 0px 20px;
+  margin: 20px;
   color: $primary;
-  font-family: $font-body;
+  font-family: $font-header;
   font-weight: bold;
 }
 
-.header--black {
-  color: black
+.header--quest-title {
+  margin: 40px 20px 10px 20px;
 }
 
 .landing__header {
-  background: linear-gradient(115deg, $dark-green 45%, rgba(0, 0, 0, 0) 40%), url($header-image-path);
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
-  height: 450px;
+  justify-items: center;
 }
 
 .landing__header-text {
   text-align: left;
-  width: 40%;
-  color: white;
-  padding: 1em;
-  font-family: $font-serif;
+  color: black;
+  margin: 40px;
   font-weight: lighter;
+  font-size: 55px;
+}
+
+.landing__header-subtext {
+  margin: 0 20px 20px 40px;
+  text-align: left;
+}
+
+.landing__header-buttons {
+  margin: 15px 15px 50px 40px;
+}
+
+.landing__middle {
+  background-color: $tan;
+  height: 300px;
+}
+
+.list {
+  border: $blue 1px solid;
+  padding: 20px 20px 40px 20px;
+}
+
+.list__header {
+  letter-spacing: .2em;
+  text-decoration: underline 2px;
+  text-underline-offset: 5px;
+}
+
+.menu {
+  align-items: center;
+}
+
+.menu .button {
+  padding: 0.1rem 1rem 0.3rem 1rem;
+  font-family: $font-logo;
+  font-weight: lighter;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.menu-text__app-name {
+  color: black;
+  font-family: $font-logo;
+  font-size: 25px;
+  letter-spacing: 1px;
+  padding: 0;
+}
+
+.menu-text__app-name:visited {
+  color: black;
 }
 
 .quest__description {
-  margin: 0em 5em;
-  color: $dark-green;
+  margin: 2em 12em;
+  color: #3062e2a1;
 }
 
-.task--easy, .task--trivial {
-  color: $success
+.reward {
+  border-radius: 0;
+  border: $blue solid 2px;
+  box-shadow: inset 0 -6px 0 $green;
+  padding: 10px 10px 0 100px;
+  background-color: transparent;
+  margin: 15px;
+  display: block;
+  text-align: left;
 }
 
-.task--medium {
-  color: $warning
+.reward:hover {
+  box-shadow: inset 0 -50px 0 0 $green;
+  transition: .2s ease-out;
 }
 
-.task--hard {
-  color: $alert
+
+.task {
+  border-radius: 0;
+  border: $blue solid 2px;
+  box-shadow: inset 5em 0 0 0 $red;
+  padding: 10px 10px 0 100px;
+  background-color: transparent;
+  margin: 15px;
+  display: block;
+  text-align: left;
+}
+
+.task:hover {
+  box-shadow: inset 450px 0 0 0 $red;
+  transition: .4s ease-out;
+}
+
+.task--incomplete {
+  color: $blue;
 }
 
 .task--completed {
-  color: gray;
+  color: black;
   text-decoration: line-through;
+}
+
+.top-bar {
+  margin: 0 20px;
 }
 
 .top-bar, .top-bar ul{

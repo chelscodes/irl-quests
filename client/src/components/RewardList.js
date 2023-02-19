@@ -33,10 +33,10 @@ const RewardList = (props) => {
   })
 
   return (
-    <>
-      <h3>Rewards</h3>
+    <div className="list">
+      <h3 className="header list__header">REWARDS</h3>
       {rewardTiles}
-    </>
+    </div>
   )
 }
 
