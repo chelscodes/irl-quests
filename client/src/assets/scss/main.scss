@@ -75,7 +75,13 @@ a:hover {
 
 .button__shadow:hover {
   background-color: $orange;
+  color: black;
   box-shadow: none;
+}
+
+.button__shadow--blue {
+  background-color: $blue;
+  color: white
 }
 
 .form__section {
