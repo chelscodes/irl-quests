@@ -12,7 +12,7 @@ import AuthenticatedRoute from "./authentication/AuthenticatedRoute"
 import QuestShow from "./QuestShow";
 import QuestForm from "./QuestForm";
 import LandingPage from "./LandingPage";
-import UserSummary from "./registration/UserSummary";
+import UserSummary from "./UserSummary";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
