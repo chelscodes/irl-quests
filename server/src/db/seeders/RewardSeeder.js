@@ -22,8 +22,8 @@ class RewardSeeder {
       {
         name: "A piece of candied ginger",
         motivationLevel: 2,
-        questId: quest2.id,
-        userId: quest2.userId
+        questId: quest1.id,
+        userId: quest1.userId
       },
       {
         name: "Buy a new book",
