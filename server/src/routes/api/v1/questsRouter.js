@@ -10,7 +10,9 @@ questsRouter.post("/", async (req, res) => {
   const { name, description } = req.body
   const userId = req.user.id
   try {
-    const persistedQuest = await Quest.query().insertAndFetch({ name, description, userId })
+    const persistedQuest = await Quest.query().insertAndFetch({ 
+      name, description, userId 
+    })
     return res.status(201).json({ quest: persistedQuest })
   } catch (error) {
     if (error instanceof ValidationError) {

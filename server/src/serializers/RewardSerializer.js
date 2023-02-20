@@ -1,5 +1,5 @@
 class RewardSerializer {
-  static async getSummary(reward) {
+  static getSummary(reward) {
     const allowedAttributes = ["id", "name", "motivationLevel", "used"]
 
     let serializedReward = {}

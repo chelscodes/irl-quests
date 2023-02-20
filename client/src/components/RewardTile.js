@@ -8,7 +8,7 @@ const RewardTile = (props) => {
   const points = getRewardPoints(motivationLevel)
 
   return (
-    <>
+    <div className="reward">
       <label>
         <input 
           id={id}
@@ -18,7 +18,7 @@ const RewardTile = (props) => {
         />
         {name}: {points}
       </label>
-    </>
+    </div>
   )
 }
 
