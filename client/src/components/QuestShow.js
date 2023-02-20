@@ -43,9 +43,10 @@ const QuestShow = (props) => {
   let newTaskArea
   if (!showTaskForm) {
     newTaskArea = <button type="button"
-        className="button button__shadow button__shadow--blue"
-        onClick={toggleTaskForm}
-      >Add Task</button>
+      className="button button__shadow button__shadow--blue"
+      onClick={toggleTaskForm}>
+        Add Task
+      </button>
   } else {
     newTaskArea = <TaskForm tasks={tasks} setTasks={setTasks} questId={questId} />
   }
