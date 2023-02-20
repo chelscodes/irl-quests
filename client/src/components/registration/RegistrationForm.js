@@ -50,7 +50,7 @@ const RegistrationForm = () => {
   };
 
   if (shouldRedirect) {
-    location.href = "/";
+    location.href = "/user-summary";
   }
 
   return (

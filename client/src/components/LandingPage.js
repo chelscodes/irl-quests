@@ -13,10 +13,10 @@ const LandingPage = (props) => {
           <br/><br/>
           So what are you waiting for? Start your quest today and unlock your full potential with irlQuests.</p>
           <button className="button button__shadow landing__header-buttons">
-            <Link to="/user-sessions/new">Sign In</Link>
+            <Link to="/users/new">Sign Up</Link>
           </button>
           <button className="button button__shadow landing__header-buttons">
-            <Link to="/users/new">Get Started</Link>
+            <Link to="/user-summary">Get Started</Link>
           </button>
         </div>
         <div className="cell small-12 medium-5 large-5">
