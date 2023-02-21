@@ -108,6 +108,10 @@ a:hover {
   border: $orange solid 2px;
 }
 
+.form__section--quest {
+  width: auto;
+}
+
 .header {
   margin: 20px;
   color: $primary;
@@ -181,7 +185,7 @@ a:hover {
   color: black;
 }
 
-.quest {
+.quest-list-item {
   border-radius: 0;
   border: $blue solid 2px;
   padding: 20px;
@@ -196,7 +200,7 @@ a:hover {
   }
 }
 
-.quest:hover {
+.quest-list-item:hover {
   background-color: $orange;
 }
 

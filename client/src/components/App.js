@@ -42,12 +42,6 @@ const App = (props) => {
           component={UserSummary}
           user={currentUser}
         />
-        <AuthenticatedRoute 
-          exact={true}
-          path="/quests/new"
-          component={QuestForm}
-          user={currentUser}
-        />
         <Route exact path="/quests/:id" component={QuestShow} />
       </Switch>
     </Router>

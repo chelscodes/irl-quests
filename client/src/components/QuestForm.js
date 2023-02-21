@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Redirect } from "react-router-dom"
 import FormError from "./layout/FormError"
 import FormValidations from "../services/FormValidations"
+import { AiFillCloseCircle } from "react-icons/ai";
 import addNewQuest from "../services/apiClient/addNewQuest"
 
 let newQuestId = null
@@ -15,10 +16,17 @@ const QuestForm = (props) => {
   const [errors, setErrors] = useState({})
 
   const [shouldRedirect, setShouldRedirect] = useState(false)
-  
+
+  const clearForm = () => {
+    setNewQuest({
+      name: "",
+      description: ""
+    })
+    setErrors({})
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault()
-    
     setErrors({})
     const potentialErrors = FormValidations.questForm(newQuest)
     setErrors(potentialErrors)
@@ -30,38 +38,47 @@ const QuestForm = (props) => {
       }
     }
   }
- 
+
   const handleInputChange = (event) => {
     setNewQuest({
       ...newQuest,
       [event.currentTarget.name]: event.currentTarget.value
     })
   }
-  
+
   if (shouldRedirect) {
     return <Redirect push to={`/quests/${newQuestId}`} />
   }
-
+ 
+  
   return (
-    <>
-      <h2 className="header text-center">Create a New Quest</h2>
-      <div>
-        <form className="form__section form__section--outline" onSubmit={handleSubmit}>
-          <label>
-            Name
-            <input type="text" name="name" value={newQuest.name} onChange={handleInputChange} />
-            <FormError error={errors.name} />
-          </label>
-          <label>
-            Description
-            <input type="text" name="description" value={newQuest.description} onChange={handleInputChange} />
-          </label>
-          <div className="text-center">
-            <input type="submit" className="button" value="Begin your quest!" />
-          </div>
-        </form>
+    <div className="form__section form__section--outline form__section--quest">
+      <div className="close-icon" onClick={() => {props.setShowQuestForm(false)}}>
+        <AiFillCloseCircle />
       </div>
-    </>
+      <h4 className="header text-center">Create a New Quest</h4>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Name
+          <input type="text" name="name" value={newQuest.name} onChange={handleInputChange} />
+          <FormError error={errors.name} />
+        </label>
+        <label>
+          Description
+          <input type="text" name="description" value={newQuest.description} onChange={handleInputChange} />
+        </label>
+        <input 
+          type="submit" 
+          className="button button__shadow button__shadow--blue" 
+          value="Begin Your Quest" 
+        />
+        <button 
+          type="button"
+          className="button button__shadow button__shadow--blue"
+          onClick={clearForm}
+        >Clear</button>
+      </form>
+    </div>
   )
 }
 
