@@ -28,7 +28,7 @@ const QuestForm = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     setErrors({})
-    const potentialErrors = FormValidations.questForm(newQuest)
+    const potentialErrors = FormValidations.nameRequired(newQuest)
     setErrors(potentialErrors)
 
     if (Object.keys(potentialErrors).length === 0) {

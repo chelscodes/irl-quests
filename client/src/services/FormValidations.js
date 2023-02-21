@@ -63,20 +63,8 @@ class FormValidations {
     }
     return newErrors
   }
-  
-  static taskForm(formInput) {
-    const { name } = formInput
-    let newErrors = {}
-    if (name.trim() === "") {
-      newErrors = {
-        ...newErrors,
-        name: "is required"
-      }
-    }
-    return newErrors
-  }
 
-  static questForm(formInput) {
+  static nameRequired(formInput) {
     const { name } = formInput
     let newErrors = {}
     if (name.trim() === "") {
