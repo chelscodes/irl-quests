@@ -65,11 +65,11 @@ const QuestShow = (props) => {
       <p>current reward pts: <span className="bold--yellow">{currentPoints}</span></p>
       <p className="quest__description">{quest.description}</p>
       <div className="grid-x grid-margin-x">
-        <div className="cell small-10 large-5 small-offset-1">
+        <div className="cell small-10 large-4 small-offset-1 large-offset-2">
           <TaskList tasks={tasks} setTasks={setTasks} />
           {newTaskForm}
         </div>
-        <div className="cell small-10 large-5 small-offset-1">
+        <div className="cell small-10 large-4 small-offset-1 large-offset-0">
           <RewardList rewards={rewards} setRewards={setRewards} />
           {newRewardForm}
         </div>
