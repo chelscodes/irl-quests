@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import FormError from "./layout/FormError"
+import { AiFillCloseCircle } from "react-icons/ai";
 import translateTaskDifficulty from "../services/translateTaskDifficulty"
 import FormValidations from "../services/FormValidations"
 import addNewTask from "../services/apiClient/addNewTask"
@@ -46,6 +47,9 @@ const TaskForm = (props) => {
 
   return (
     <div className="form__section form__section--outline">
+      <div className="close-icon" onClick={() => {props.setShowTaskForm(false)}}>
+        <AiFillCloseCircle />
+      </div>
       <h4 className="header">Add a New Task</h4>
       <form onSubmit={handleSubmit}>
         <label>

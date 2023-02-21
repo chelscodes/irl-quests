@@ -40,15 +40,19 @@ const QuestShow = (props) => {
     setShowTaskForm(!showTaskForm)
   }
 
-  let newTaskArea
+  let newTaskToggle
   if (!showTaskForm) {
-    newTaskArea = <button type="button"
+    newTaskToggle = <button type="button"
       className="button button__shadow button__shadow--blue"
       onClick={toggleTaskForm}>
         Add Task
       </button>
   } else {
-    newTaskArea = <TaskForm tasks={tasks} setTasks={setTasks} questId={questId} />
+    newTaskToggle = <TaskForm 
+      tasks={tasks} 
+      setTasks={setTasks} 
+      questId={questId}
+      setShowTaskForm={setShowTaskForm} />
   }
 
   const calculatedPoints = getQuestCurrentPoints(tasks, rewards)
@@ -62,11 +66,11 @@ const QuestShow = (props) => {
       <p>current reward pts: <span className="bold--yellow">{currentPoints}</span></p>
       <p className="quest__description">{quest.description}</p>
       <div className="grid-x grid-margin-x">
-        <div className="cell small-12 medium-5 large-offset-1">
+        <div className="cell small-10 large-5 small-offset-1">
           <TaskList tasks={tasks} setTasks={setTasks} />
-          {newTaskArea}
+          {newTaskToggle}
         </div>
-        <div className="cell small-12 medium-5">
+        <div className="cell small-10 large-5 small-offset-1 medium-offset-0">
           <RewardList rewards={rewards} setRewards={setRewards} />
         </div>
       </div>
