@@ -1,11 +1,18 @@
 import React from "react"
+import QuestTile from "./QuestTile"
 
 const QuestList = (props) => {
+  const quests = props.quests
+  
+  const questTiles = quests.map((quest) => {
+    return <QuestTile key={quest.id} quest={quest} />
+  })
 
   return (
-    <>
-      <h3>Quest List</h3>
-    </>
+    <div className="list">
+      <h3 className="header list__header text-center">QUESTS</h3>
+      {questTiles}
+    </div>
   )
 }
 

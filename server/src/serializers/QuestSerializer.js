@@ -26,6 +26,17 @@ class QuestSerializer {
 
     return serializedQuest
   }
+
+  static getName(quest) {
+    const allowedAttributes = ["id", "name", "userId"]
+
+    let serializedQuest = {}
+    for (const attribute of allowedAttributes) {
+      serializedQuest[attribute] = quest[attribute]
+    }
+
+    return serializedQuest
+  }
 }
 
 export default QuestSerializer
