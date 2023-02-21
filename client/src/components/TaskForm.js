@@ -83,11 +83,8 @@ const TaskForm = (props) => {
           type="button"
           className="button button__shadow button__shadow--blue"
           onClick={clearForm}
-        >
-          Clear
-        </button>
+        >Clear</button>
       </form>
-      
     </div>
   )
 }

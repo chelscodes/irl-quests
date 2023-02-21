@@ -5,7 +5,7 @@ const QuestTile = (props) => {
   const { name, id } = props.quest
 
   return (
-    <div className="quest">
+    <div className="quest-list-item">
       <Link to={`/quests/${id}`} >{name}</Link>
     </div>
   )
