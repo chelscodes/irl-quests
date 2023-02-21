@@ -3,7 +3,6 @@ import RewardForm from "../components/RewardForm"
 
 const renderRewardForm = (showRewardForm, setShowRewardForm, rewardFormProps) => {
   let newRewardFormOutput
-
   if (!showRewardForm) {
     newRewardFormOutput = <button type="button"
       className="button button__shadow button__shadow--blue"
@@ -17,7 +16,6 @@ const renderRewardForm = (showRewardForm, setShowRewardForm, rewardFormProps) =>
       setShowRewardForm={rewardFormProps.setShowRewardForm}
     />
   }
-
   return newRewardFormOutput
 }
 
