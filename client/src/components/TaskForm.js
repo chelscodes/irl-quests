@@ -25,7 +25,7 @@ const TaskForm = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     setErrors({})
-    const potentialErrors = FormValidations.taskForm(newTask)
+    const potentialErrors = FormValidations.nameRequired(newTask)
     setErrors(potentialErrors)
 
     if (Object.keys(potentialErrors).length === 0) {
