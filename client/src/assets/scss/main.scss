@@ -27,6 +27,7 @@ $blue: #3061E2;
 $tan: #F0EDE2;
 $green: #CFE4C5;
 $orange: #FABC3A;
+$light-orange: #fabd3a86;
 $red: #FB8089;
 
 $font-logo: 'Abril Fatface', sans-serif;
@@ -84,6 +85,15 @@ a:hover {
   color: white
 }
 
+.close-icon {
+  float: right;
+}
+
+.close-icon:hover {
+  color: $red;
+  cursor: pointer;
+}
+
 .form__section {
   align-content: center;
   width: 70%;
@@ -138,6 +148,7 @@ a:hover {
 .list {
   border: $blue 1px solid;
   padding: 20px 20px 40px 20px;
+  background-color: white;
 }
 
 .list__header {
@@ -170,6 +181,25 @@ a:hover {
   color: black;
 }
 
+.quest {
+  border-radius: 0;
+  border: $blue solid 2px;
+  padding: 20px;
+  margin: 15px;
+  display: block;
+  background-color: $light-orange;
+  text-align: center;
+
+  a {
+    color: black;
+    font-weight: bold;
+  }
+}
+
+.quest:hover {
+  background-color: $orange;
+}
+
 .quest__description {
   margin: 2em 12em;
   color: #3062e2a1;
@@ -191,6 +221,19 @@ a:hover {
   transition: .2s ease-out;
 }
 
+.subheader {
+  color: $blue
+}
+
+.summary {
+  margin: 1em 1em 1.5em 1em;
+  font-size: 55px;
+}
+
+.summary__body {
+  padding: 50px 0;
+  background-color: $tan;
+}
 
 .task {
   border-radius: 0;
