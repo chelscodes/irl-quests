@@ -50,7 +50,7 @@ const RegistrationForm = () => {
   };
 
   if (shouldRedirect) {
-    location.href = "/";
+    location.href = "/user-summary";
   }
 
   return (
@@ -66,7 +66,7 @@ const RegistrationForm = () => {
         </div>
         <div>
           <label>
-            Username
+            Display Name
             <input type="text" name="username" value={userPayload.username} onChange={onInputChange} />
             <FormError error={errors.username} />
           </label>

@@ -1,10 +1,25 @@
 import express from "express"
 import objection from "objection"
 const { ValidationError } = objection
-import { Quest } from "../../../models/index.js"
+import { User, Quest } from "../../../models/index.js"
 import QuestSerializer from "../../../serializers/QuestSerializer.js"
 
 const questsRouter = new express.Router()
+
+questsRouter.get("/", async (req, res) => {
+  const userId = req.user.id
+  try {
+    const user = await User.query().findById(userId)
+    const quests = await user.$relatedQuery("quests")
+    const serializedQuests = quests.map((quest) => {
+      const serializedQuest = QuestSerializer.getName(quest)
+      return serializedQuest
+    })
+    return res.status(200).json({ quests: serializedQuests })
+  } catch (error) {
+    return res.status(500).json({ errors: error })
+  }
+})
 
 questsRouter.post("/", async (req, res) => {
   const { name, description } = req.body

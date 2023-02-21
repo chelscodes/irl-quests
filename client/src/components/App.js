@@ -12,6 +12,7 @@ import AuthenticatedRoute from "./authentication/AuthenticatedRoute"
 import QuestShow from "./QuestShow";
 import QuestForm from "./QuestForm";
 import LandingPage from "./LandingPage";
+import UserSummary from "./UserSummary";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -35,6 +36,12 @@ const App = (props) => {
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
+        <AuthenticatedRoute 
+          exact={true}
+          path="/user-summary"
+          component={UserSummary}
+          user={currentUser}
+        />
         <AuthenticatedRoute 
           exact={true}
           path="/quests/new"
