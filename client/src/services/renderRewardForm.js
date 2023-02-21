@@ -17,7 +17,6 @@ const renderRewardForm = (showRewardForm, setShowRewardForm, rewardFormProps) =>
       setShowRewardForm={rewardFormProps.setShowRewardForm}
     />
   }
-  
 
   return newRewardFormOutput
 }
