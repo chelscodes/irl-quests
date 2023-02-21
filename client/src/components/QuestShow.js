@@ -14,6 +14,7 @@ const QuestShow = (props) => {
   const [rewards, setRewards] = useState([])
   const [currentPoints, setCurrentPoints] = useState(0)
   const [showTaskForm, setShowTaskForm] = useState(false)
+  const [showRewardForm, setShowRewardForm] = useState(false)
 
   const questId = props.match.params.id
   const getQuestData = async () => {
@@ -47,9 +48,15 @@ const QuestShow = (props) => {
     questId: questId,
     setShowTaskForm: setShowTaskForm
   }
-
   const newTaskForm = renderTaskForm(showTaskForm, toggleTaskForm, taskFormProps)
-  const newRewardForm = renderRewardForm()
+  
+  const rewardFormProps = {
+    rewards: rewards, 
+    setRewards: setRewards, 
+    questId: questId, 
+    setShowRewardForm: setShowRewardForm
+  }
+  const newRewardForm = renderRewardForm(showRewardForm, rewardFormProps)
 
   const calculatedPoints = getQuestCurrentPoints(tasks, rewards)
   if (calculatedPoints !== currentPoints) {

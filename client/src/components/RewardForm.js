@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { AiFillCloseCircle } from "react-icons/ai";
 import FormValidations from "../services/FormValidations";
 import FormError from "./layout/FormError";
+import addNewReward from "../services/apiClient/addNewReward"
 
 const RewardForm = (props) => {
   const { rewards, setRewards, questId } = props
@@ -26,8 +27,9 @@ const RewardForm = (props) => {
     setErrors(potentialErrors)
 
     if (Object.keys(potentialErrors).length === 0) {
-      const persistedReward = "fetch request"
-      // add persistedReward to rewards array (make new array first)
+      const persistedReward = await addNewReward(newReward, questId)
+      const newRewardsArray = [...rewards, persistedReward]
+      setRewards(newRewardsArray)
       clearForm()
     }
   }
@@ -71,7 +73,7 @@ const RewardForm = (props) => {
         <input 
           type="submit" 
           className="button button__shadow button__shadow--blue" 
-          value="Add Task" 
+          value="Add Reward" 
         />
         <button 
           type="button"
