@@ -1,12 +1,12 @@
 import React from "react"
 import TaskForm from "../components/TaskForm"
 
-const renderTaskForm = (showTaskForm, toggleTaskForm, taskFormProps) => {
+const renderTaskForm = (showTaskForm, setShowTaskForm, taskFormProps) => {
   let newTaskFormOutput
   if (!showTaskForm) {
     newTaskFormOutput = <button type="button"
       className="button button__shadow button__shadow--blue"
-      onClick={toggleTaskForm}>Add Task
+      onClick={() => {setShowTaskForm(true)}}>Add Task
     </button>
   } else {
     newTaskFormOutput = <TaskForm 

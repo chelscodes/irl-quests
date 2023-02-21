@@ -43,7 +43,7 @@ const RewardForm = (props) => {
 
   return (
     <div className="form__section form__section--outline">
-      <div className="close-icon">
+      <div className="close-icon" onClick={() => {props.setShowRewardForm(false)}}>
         <AiFillCloseCircle />
       </div>
       <h4 className="header">Add a New Reward</h4>

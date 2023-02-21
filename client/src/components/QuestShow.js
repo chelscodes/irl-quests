@@ -38,17 +38,13 @@ const QuestShow = (props) => {
     getQuestData()
   }, [])
 
-  const toggleTaskForm = () => {
-    setShowTaskForm(!showTaskForm)
-  }
-
   const taskFormProps = {
     tasks: tasks,
     setTasks: setTasks,
     questId: questId,
     setShowTaskForm: setShowTaskForm
   }
-  const newTaskForm = renderTaskForm(showTaskForm, toggleTaskForm, taskFormProps)
+  const newTaskForm = renderTaskForm(showTaskForm, setShowTaskForm, taskFormProps)
   
   const rewardFormProps = {
     rewards: rewards, 
@@ -56,7 +52,7 @@ const QuestShow = (props) => {
     questId: questId, 
     setShowRewardForm: setShowRewardForm
   }
-  const newRewardForm = renderRewardForm(showRewardForm, rewardFormProps)
+  const newRewardForm = renderRewardForm(showRewardForm, setShowRewardForm, rewardFormProps)
 
   const calculatedPoints = getQuestCurrentPoints(tasks, rewards)
   if (calculatedPoints !== currentPoints) {
