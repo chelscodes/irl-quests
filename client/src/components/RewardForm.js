@@ -3,6 +3,7 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import FormValidations from "../services/FormValidations";
 import FormError from "./layout/FormError";
 import addNewReward from "../services/apiClient/addNewReward"
+import translateRewardMotivationLevel from "../services/translateRewardMotivationLevel";
 
 const RewardForm = (props) => {
   const { rewards, setRewards, questId } = props
@@ -41,6 +42,8 @@ const RewardForm = (props) => {
     })
   }
 
+  const translatedMotivationLevel = translateRewardMotivationLevel(newReward.motivationLevel)
+
   return (
     <div className="form__section form__section--outline">
       <div className="close-icon" onClick={() => {props.setShowRewardForm(false)}}>
@@ -60,7 +63,7 @@ const RewardForm = (props) => {
           <FormError error={errors.name} />
         </label>
         <label>
-          Motivation Level<br/>
+          Motivation Level: {translatedMotivationLevel}<br/>
           <input 
             type="range"
             name="motivationLevel"
