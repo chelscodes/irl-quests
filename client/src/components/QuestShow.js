@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react"
 import getQuestCurrentPoints from "../services/getQuestCurrentPoints"
+import renderRewardForm from "../services/renderRewardForm"
+import renderTaskForm from "../services/renderTaskForm"
 import RewardList from "./RewardList"
-import TaskForm from "./TaskForm"
 import TaskList from "./TaskList"
 
 const QuestShow = (props) => {
@@ -40,20 +41,15 @@ const QuestShow = (props) => {
     setShowTaskForm(!showTaskForm)
   }
 
-  let newTaskToggle
-  if (!showTaskForm) {
-    newTaskToggle = <button type="button"
-      className="button button__shadow button__shadow--blue"
-      onClick={toggleTaskForm}>
-        Add Task
-      </button>
-  } else {
-    newTaskToggle = <TaskForm 
-      tasks={tasks} 
-      setTasks={setTasks} 
-      questId={questId}
-      setShowTaskForm={setShowTaskForm} />
+  const taskFormProps = {
+    tasks: tasks,
+    setTasks: setTasks,
+    questId: questId,
+    setShowTaskForm: setShowTaskForm
   }
+
+  const newTaskForm = renderTaskForm(showTaskForm, toggleTaskForm, taskFormProps)
+  const newRewardForm = renderRewardForm()
 
   const calculatedPoints = getQuestCurrentPoints(tasks, rewards)
   if (calculatedPoints !== currentPoints) {
@@ -68,10 +64,11 @@ const QuestShow = (props) => {
       <div className="grid-x grid-margin-x">
         <div className="cell small-10 large-5 small-offset-1">
           <TaskList tasks={tasks} setTasks={setTasks} />
-          {newTaskToggle}
+          {newTaskForm}
         </div>
-        <div className="cell small-10 large-5 small-offset-1 medium-offset-0">
+        <div className="cell small-10 large-5 small-offset-1">
           <RewardList rewards={rewards} setRewards={setRewards} />
+          {newRewardForm}
         </div>
       </div>
     </div>
