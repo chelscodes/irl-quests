@@ -1,6 +1,6 @@
-# Life Quests
+# irlQuests
 
-Welcome to Life Quests, where you can turn your to-do lists into Quests with real life rewards. 
+Welcome to irlQuests, where you can turn your to-do lists into Quests with real life rewards. 
 
 ## Features
 
