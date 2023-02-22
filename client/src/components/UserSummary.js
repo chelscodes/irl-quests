@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react"
+import DataVisTimeRange from "./DataVisTimeRange"
+import { ResponsiveTimeRange } from "@nivo/calendar"
 import QuestForm from "./QuestForm"
 import QuestList from "./QuestList"
 
@@ -50,7 +52,8 @@ const UserSummary = (props) => {
       <h2 className="header text-center summary">Summary</h2>
       <div className="grid-x grid-margin-x summary__body">
         <div className="cell small-12 medium-4 large-3 small-offset-2 large-offset-2">
-          <h5 className="subheader">Welcome back, {username}!</h5>
+          <h4 className="subheader">Welcome back, {username}!</h4>
+          <DataVisTimeRange />
         </div>
         <div className="cell small-12 medium-5 large-4 large-offset-1">
           <QuestList quests={quests} />
