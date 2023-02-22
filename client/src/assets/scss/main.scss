@@ -85,6 +85,16 @@ a:hover {
   color: white
 }
 
+.button__undo {
+  color: gray;
+  font-size: small;
+  text-align: right;
+}
+
+.button__undo:hover {
+  cursor: pointer;
+}
+
 .close-icon {
   float: right;
 }
@@ -213,16 +223,32 @@ a:hover {
   border-radius: 0;
   border: $blue solid 2px;
   box-shadow: inset 0 -6px 0 $green;
-  padding: 10px 10px 0 100px;
+  padding: 10px;
   background-color: transparent;
   margin: 15px;
   display: block;
-  text-align: left;
+  text-align: center;
 }
 
 .reward:hover {
+  background-color: transparent;
   box-shadow: inset 0 -50px 0 0 $green;
   transition: .2s ease-out;
+  cursor: pointer;
+}
+
+.reward--used {
+  background-color: $green;
+  border-radius: 0;
+  border: $blue solid 2px;
+  padding: 10px;
+  margin: 15px 15px 0 15px;
+  display: block;
+}
+
+.reward__text {
+  margin: 0px;
+  color: black
 }
 
 .subheader {

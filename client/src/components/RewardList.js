@@ -28,6 +28,7 @@ const RewardList = (props) => {
         key={reward.id}
         reward={reward}
         handleToggle={handleToggle}
+        currentPoints={props.currentPoints}
       />
     )
   })
