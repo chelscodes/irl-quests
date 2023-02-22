@@ -68,6 +68,11 @@ class User extends uniqueFunc(Model) {
       }
     }
   }
+
+  static async getCompletedTasks(user) {
+    const completedTasksData = await user.$relatedQuery("tasks").where("completed", "true")
+    return completedTasksData
+  }
 }
 
 module.exports = User;
