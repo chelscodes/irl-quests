@@ -70,7 +70,7 @@ const QuestShow = (props) => {
           {newTaskForm}
         </div>
         <div className="cell small-10 large-4 small-offset-1 large-offset-0">
-          <RewardList rewards={rewards} setRewards={setRewards} />
+          <RewardList rewards={rewards} setRewards={setRewards} currentPoints={currentPoints} />
           {newRewardForm}
         </div>
       </div>
