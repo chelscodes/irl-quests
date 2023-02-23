@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import { AiFillCloseCircle } from "react-icons/ai";
-import FormValidations from "../services/FormValidations";
-import FormError from "./layout/FormError";
-import addNewReward from "../services/apiClient/addNewReward"
-import translateRewardMotivationLevel from "../services/translateRewardMotivationLevel";
+import FormValidations from "../../services/FormValidations";
+import FormError from "../layout/FormError";
+import addNewReward from "../../services/apiClient/addNewReward"
+import translateRewardMotivationLevel from "../../services/translateRewardMotivationLevel";
 
 const RewardForm = (props) => {
   const { rewards, setRewards, questId } = props

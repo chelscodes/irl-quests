@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react"
 import DataVisTimeRange from "./DataVisTimeRange"
-import { ResponsiveTimeRange } from "@nivo/calendar"
-import QuestForm from "./QuestForm"
-import QuestList from "./QuestList"
+import QuestForm from "./quests/QuestForm"
+import QuestList from "./quests/QuestList"
 
 const UserSummary = (props) => {
   const [quests, setQuests] = useState([])

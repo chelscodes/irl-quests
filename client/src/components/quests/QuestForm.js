@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import { Redirect } from "react-router-dom"
-import FormError from "./layout/FormError"
-import FormValidations from "../services/FormValidations"
 import { AiFillCloseCircle } from "react-icons/ai";
-import addNewQuest from "../services/apiClient/addNewQuest"
+import FormError from "../layout/FormError"
+import FormValidations from "../../services/FormValidations"
+import addNewQuest from "../../services/apiClient/addNewQuest"
 
 let newQuestId = null
 

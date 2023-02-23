@@ -1,5 +1,5 @@
 import React from "react"
-import RewardForm from "../components/RewardForm"
+import RewardForm from "../components/rewards/RewardForm"
 
 const renderRewardForm = (showRewardForm, setShowRewardForm, rewardFormProps) => {
   let newRewardFormOutput

@@ -1,5 +1,5 @@
 import React from "react";
-import getRewardPoints from "../services/getRewardPoints"
+import getRewardPoints from "../../services/getRewardPoints"
 
 const RewardTile = (props) => {
   const { id, name, motivationLevel, used } = props.reward
