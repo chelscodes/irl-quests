@@ -22,12 +22,12 @@ const RewardTile = (props) => {
   }
   
   return (
-    <div>
+    <>
       <div className={`${rewardClass}`} onClick={accessHandleClick}>
         <p className="reward__text">{name}: {points}</p>
       </div>
       {undoButton}
-    </div>
+    </>
   )
 }
 

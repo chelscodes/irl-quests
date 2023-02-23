@@ -1,11 +1,22 @@
 import React from "react"
 import QuestTile from "./QuestTile"
+import deleteQuest from "../../services/apiClient/deleteQuest"
 
 const QuestList = (props) => {
-  const quests = props.quests
+  const { quests, setQuests } = props
+
+  const handleDelete = async (questId) => {
+    const confirmation = await deleteQuest(questId)
+    if (confirmation) {
+      const updatedQuests = quests.filter((quest) => {
+        return quest.id !== questId
+      })
+      setQuests(updatedQuests)
+    }
+  }
   
   const questTiles = quests.map((quest) => {
-    return <QuestTile key={quest.id} quest={quest} />
+    return <QuestTile key={quest.id} quest={quest} handleDelete={handleDelete} />
   })
 
   return (

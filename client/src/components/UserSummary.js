@@ -62,7 +62,7 @@ const UserSummary = (props) => {
           {dataVisualizationComponent}
         </div>
         <div className="cell small-12 medium-5 large-4 large-offset-1">
-          <QuestList quests={quests} />
+          <QuestList quests={quests} setQuests={setQuests} />
           {newQuestToggle}
         </div>
       </div>
