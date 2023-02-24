@@ -1,6 +1,7 @@
 import React from "react";
 import TaskTile from "./TaskTile";
 import updateTaskStatus from "../../services/apiClient/updateTaskStatus";
+import deleteTask from "../../services/apiClient/deleteTask";
 
 const TaskList = (props) => {
   const { tasks, setTasks } = props
@@ -21,6 +22,16 @@ const TaskList = (props) => {
 
     setTasks(updatedTasks)
   }
+
+  const handleDelete = async (taskId) => {
+    const confirmation = await deleteTask(taskId)
+    if (confirmation) {
+      const updatedTasks = tasks.filter((task) => {
+        return task.id !== taskId
+      })
+      setTasks(updatedTasks)
+    }
+  }
   
   const taskTiles = tasks.map((task) => {
     return (
@@ -28,6 +39,7 @@ const TaskList = (props) => {
         key={task.id} 
         task={task} 
         handleToggle={handleToggle} 
+        handleDelete={handleDelete}
       />
     )
   })
