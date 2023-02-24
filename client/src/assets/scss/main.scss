@@ -87,6 +87,7 @@ a:hover {
 
 .section__modify-buttons {
   margin: 3px;
+  @include xy-gutters($gutter-position: left right bottom);
 }
 
 .button__delete {
@@ -102,7 +103,7 @@ a:hover {
 .button__undo {
   color: gray;
   font-size: small;
-  text-align: right;
+  text-align: center;
 }
 
 .button__undo:hover {
