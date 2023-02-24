@@ -3,8 +3,7 @@ import getTaskPoints from "../../services/getTaskPoints";
 
 const TaskTile = (props) => {
   const { id, name, difficulty, completed } = props.task
-  const handleToggle = props.handleToggle
-  const handleDelete = props.handleDelete
+  const { handleToggle, handleDelete } = props
 
   let styling = ""
   if (completed) {
@@ -27,7 +26,7 @@ const TaskTile = (props) => {
           {name} <span className="bold--yellow">{points}pts</span>
         </label>
       </div>
-      <div className="grid-x grid-margin-x section__modify-buttons">
+      <div className="grid-x section__modify-buttons">
         <button className="cell button__delete" onClick={handleDeleteClick}>delete</button>
       </div>
     </>

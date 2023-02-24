@@ -29,8 +29,8 @@ rewardsRouter.post("/", async (req, res) => {
   }
 })
 
-rewardsRouter.patch("/:rewardId", async (req, res) => {
-  const rewardId = req.params.rewardId
+rewardsRouter.patch("/:id", async (req, res) => {
+  const rewardId = req.params.id
   const updatedUsedStatus = req.body.updatedUsedStatus
   try {
     const updatedReward = await Reward.query().patchAndFetchById(rewardId, {
@@ -38,6 +38,20 @@ rewardsRouter.patch("/:rewardId", async (req, res) => {
     })
     const serializedReward = RewardSerializer.getSummary(updatedReward)
     return res.status(200).json({ updatedReward: serializedReward })
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({ errors: error })
+  }
+})
+
+rewardsRouter.delete("/:id", async (req, res) => {
+  const rewardId = req.params.id
+  try {
+    const rowsDeleted = await Reward.query().deleteById(rewardId)
+    if (rowsDeleted === 1) {
+      return res.status(200).json("Reward was successfully deleted!")
+    }
+    return res.status(404).json({ errors: "Reward not found" })
   } catch (error) {
     console.log(error)
     return res.status(500).json({ errors: error })
