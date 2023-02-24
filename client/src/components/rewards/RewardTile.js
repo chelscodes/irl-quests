@@ -1,5 +1,5 @@
 import React from "react";
-import getRewardPoints from "../services/getRewardPoints"
+import getRewardPoints from "../../services/getRewardPoints"
 
 const RewardTile = (props) => {
   const { id, name, motivationLevel, used } = props.reward
@@ -22,12 +22,12 @@ const RewardTile = (props) => {
   }
   
   return (
-    <div>
+    <>
       <div className={`${rewardClass}`} onClick={accessHandleClick}>
         <p className="reward__text">{name}: {points}</p>
       </div>
       {undoButton}
-    </div>
+    </>
   )
 }
 

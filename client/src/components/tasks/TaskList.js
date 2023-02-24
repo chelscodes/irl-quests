@@ -1,6 +1,6 @@
 import React from "react";
 import TaskTile from "./TaskTile";
-import updateTaskStatus from "../services/apiClient/updateTaskStatus";
+import updateTaskStatus from "../../services/apiClient/updateTaskStatus";
 
 const TaskList = (props) => {
   const { tasks, setTasks } = props

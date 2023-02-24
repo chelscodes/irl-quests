@@ -1,5 +1,5 @@
 import React from "react";
-import getTaskPoints from "../services/getTaskPoints";
+import getTaskPoints from "../../services/getTaskPoints";
 
 const TaskTile = (props) => {
   const { id, name, difficulty, completed } = props.task

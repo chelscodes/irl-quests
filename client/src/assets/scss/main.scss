@@ -85,6 +85,20 @@ a:hover {
   color: white
 }
 
+.section__modify-buttons {
+  margin: 3px;
+}
+
+.button__delete {
+  color: gray;
+  font-size: small;
+  text-align: right;
+}
+
+.button__delete:hover {
+  cursor: pointer;
+}
+
 .button__undo {
   color: gray;
   font-size: small;
@@ -203,7 +217,7 @@ a:hover {
   border-radius: 0;
   border: $blue solid 2px;
   padding: 20px;
-  margin: 15px;
+  margin: 15px 15px 0 15px;
   display: block;
   background-color: $light-orange;
   text-align: center;

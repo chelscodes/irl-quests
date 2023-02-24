@@ -1,6 +1,6 @@
 import React from "react"
 import RewardTile from "./RewardTile"
-import updateRewardStatus from "../services/apiClient/updateRewardStatus"
+import updateRewardStatus from "../../services/apiClient/updateRewardStatus"
 
 const RewardList = (props) => {
   const { rewards, setRewards } = props

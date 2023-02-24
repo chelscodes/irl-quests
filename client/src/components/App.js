@@ -9,8 +9,7 @@ import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
 import AuthenticatedRoute from "./authentication/AuthenticatedRoute"
 
-import QuestShow from "./QuestShow";
-import QuestForm from "./QuestForm";
+import QuestShow from "./quests/QuestShow";
 import LandingPage from "./LandingPage";
 import UserSummary from "./UserSummary";
 

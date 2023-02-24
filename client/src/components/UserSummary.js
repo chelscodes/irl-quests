@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react"
 import DataVisTimeRange from "./DataVisTimeRange"
-import { ResponsiveTimeRange } from "@nivo/calendar"
-import QuestForm from "./QuestForm"
-import QuestList from "./QuestList"
+import QuestForm from "./quests/QuestForm"
+import QuestList from "./quests/QuestList"
 
 const UserSummary = (props) => {
   const [quests, setQuests] = useState([])
@@ -63,7 +62,7 @@ const UserSummary = (props) => {
           {dataVisualizationComponent}
         </div>
         <div className="cell small-12 medium-5 large-4 large-offset-1">
-          <QuestList quests={quests} />
+          <QuestList quests={quests} setQuests={setQuests} />
           {newQuestToggle}
         </div>
       </div>

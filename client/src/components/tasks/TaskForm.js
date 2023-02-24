@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import FormError from "./layout/FormError"
+import FormError from "../layout/FormError"
 import { AiFillCloseCircle } from "react-icons/ai";
-import translateTaskDifficulty from "../services/translateTaskDifficulty"
-import FormValidations from "../services/FormValidations"
-import addNewTask from "../services/apiClient/addNewTask"
+import translateTaskDifficulty from "../../services/translateTaskDifficulty"
+import FormValidations from "../../services/FormValidations"
+import addNewTask from "../../services/apiClient/addNewTask"
 
 const TaskForm = (props) => {
   const { tasks, setTasks, questId } = props

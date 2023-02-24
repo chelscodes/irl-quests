@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
-import getQuestCurrentPoints from "../services/getQuestCurrentPoints"
-import renderRewardForm from "../services/renderRewardForm"
-import renderTaskForm from "../services/renderTaskForm"
-import RewardList from "./RewardList"
-import TaskList from "./TaskList"
+import getQuestCurrentPoints from "../../services/getQuestCurrentPoints"
+import renderRewardForm from "../../services/renderRewardForm"
+import renderTaskForm from "../../services/renderTaskForm"
+import RewardList from "../rewards/RewardList"
+import TaskList from "../tasks/TaskList"
 
 const QuestShow = (props) => {
   const [quest, setQuest] = useState({
