@@ -44,4 +44,18 @@ tasksRouter.patch("/:taskId", async (req, res) => {
   }
 })
 
+tasksRouter.delete("/:id", async (req,res) => {
+  const taskId = req.params.id
+  try {
+    const rowsDeleted = await Task.query().deleteById(taskId)
+    if (rowsDeleted === 1) {
+      return res.status(200).json("Task was successfully deleted!")
+    }
+    return res.status(404).json({ errors: "Task not found" })
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({ errors: error })
+  }
+})
+
 export default tasksRouter
