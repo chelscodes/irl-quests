@@ -29,7 +29,6 @@ $green: #CFE4C5;
 $orange: #FABC3A;
 $light-orange: #fabd3a86;
 $red: #FB8089;
-$dark-red: #d35c64;
 
 $font-logo: 'Abril Fatface', sans-serif;
 $font-header: 'Space Grotesk', sans-serif;
@@ -288,11 +287,14 @@ a:hover {
 .task {
   border-radius: 0;
   border: $blue solid 2px;
-  box-shadow: inset 4em 0 0 0 $red;
-  padding: 10px 0 0 80px;
+  box-shadow: inset 3.6em 0 0 0 $red;
+  padding: 1px 2px 0 13px;
   background-color: transparent;
   margin: 15px 15px 5px 15px;
-  text-align: left;
+
+  p {
+    margin: 0;
+  }
 }
 
 .task:hover {
@@ -301,18 +303,39 @@ a:hover {
 }
 
 .task--completed {
-  background-color: $dark-red;
+  background-color: $red;
   box-shadow: none;
 }
 
 .task__points {
   padding-right: 5px;
   font-size: .8em;
+  font-weight: bold;
   text-align: right;
+}
+
+.task__name {
+  padding: 5px 5px 5px 2em;
+  font-size: .85em;
+  text-align: left;
+  font-weight: bold;
+  font-family: $font-header;
+  color: $blue
 }
 
 .task__name--completed {
   text-decoration: line-through;
+  font-weight: normal;
+  color: black
+}
+
+.task__checkbox {
+  padding-top: 5px;
+  font-size: x-large;
+}
+
+.task__drag-icon {
+  padding-top: 5px;
 }
 
 .top-bar {
