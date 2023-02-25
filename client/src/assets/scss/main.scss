@@ -29,6 +29,7 @@ $green: #CFE4C5;
 $orange: #FABC3A;
 $light-orange: #fabd3a86;
 $red: #FB8089;
+$dark-red: #d35c64;
 
 $font-logo: 'Abril Fatface', sans-serif;
 $font-header: 'Space Grotesk', sans-serif;
@@ -287,11 +288,10 @@ a:hover {
 .task {
   border-radius: 0;
   border: $blue solid 2px;
-  box-shadow: inset 5em 0 0 0 $red;
-  padding: 10px 10px 0 100px;
+  box-shadow: inset 4em 0 0 0 $red;
+  padding: 10px 0 0 80px;
   background-color: transparent;
   margin: 15px 15px 5px 15px;
-  display: block;
   text-align: left;
 }
 
@@ -300,12 +300,18 @@ a:hover {
   transition: .4s ease-out;
 }
 
-.task--incomplete {
-  color: $blue;
+.task--completed {
+  background-color: $dark-red;
+  box-shadow: none;
 }
 
-.task--completed {
-  color: black;
+.task__points {
+  padding-right: 5px;
+  font-size: .8em;
+  text-align: right;
+}
+
+.task__name--completed {
   text-decoration: line-through;
 }
 
