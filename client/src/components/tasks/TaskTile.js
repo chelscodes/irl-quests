@@ -1,35 +1,64 @@
 import React from "react";
+import { useSortable } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
+
+import { MdDragIndicator } from "react-icons/md";
+import { FiSquare, FiCheckSquare } from "react-icons/fi"
+
 import getTaskPoints from "../../services/getTaskPoints";
+
 
 const TaskTile = (props) => {
   const { id, name, difficulty, completed } = props.task
   const { handleToggle, handleDelete } = props
+  const { 
+    attributes, 
+    listeners, 
+    setNodeRef, 
+    transform, 
+    transition 
+  } = useSortable({ id })
+  
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition
+  }
 
-  let styling = ""
+  let styleCompletedTaskBox = ""
+  let styleCompletedTaskName = ""
+  let checkboxIcon = <FiSquare />
+  let stylePointsColor = "bold--yellow"
   if (completed) {
-    styling += "task--completed "
+    styleCompletedTaskBox = "task--completed"
+    styleCompletedTaskName = "task__name--completed "
+    checkboxIcon = <FiCheckSquare />
+    stylePointsColor = ""
   }
 
   const points = getTaskPoints(difficulty)
+  const handleToggleClick = () => handleToggle(id, completed)
   const handleDeleteClick = () => handleDelete(id)
 
   return (
-    <>
-      <div className="task">
-        <label className={styling}>
-          <input 
-            id={id}
-            type="checkbox"
-            defaultChecked={completed}
-            onChange={() => handleToggle(id, completed)}
-          />
-          {name} <span className="bold--yellow">{points}pts</span>
-        </label>
+    <div ref={setNodeRef} style={style}>
+      <div className={`grid-x align-center-middle task ${styleCompletedTaskBox}`}>
+        <div className="task__checkbox cell small-1" onClick={handleToggleClick}>
+          {checkboxIcon}
+        </div>
+        <div className="cell small-8" onClick={handleToggleClick}>
+          <p className={`task__name ${styleCompletedTaskName}`}>{name}</p>
+        </div>
+        <div className="cell small-2">
+          <p className={`task__points ${stylePointsColor}`}>{points}pts</p>
+        </div>
+        <div className="task__drag-icon cell small-1" {...attributes} {...listeners}>
+          <MdDragIndicator />
+        </div>
       </div>
       <div className="grid-x section__modify-buttons">
         <button className="cell button__delete" onClick={handleDeleteClick}>delete</button>
       </div>
-    </>
+    </div>
   )
 }
 

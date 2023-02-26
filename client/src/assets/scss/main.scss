@@ -242,11 +242,13 @@ a:hover {
   border-radius: 0;
   border: $blue solid 2px;
   box-shadow: inset 0 -6px 0 $green;
-  padding: 10px;
+  padding: 3px 2px 5px 10px;
   background-color: transparent;
-  margin: 15px;
-  display: block;
-  text-align: center;
+  margin: 15px 15px 5px 15px;
+
+  p {
+    margin: 0;
+  }
 }
 
 .reward:hover {
@@ -260,9 +262,14 @@ a:hover {
   background-color: $green;
   border-radius: 0;
   border: $blue solid 2px;
-  padding: 10px;
-  margin: 15px 15px 0 15px;
-  display: block;
+  padding: 3px 2px 5px 10px;
+  margin: 15px 15px 5px 15px;
+}
+
+.reward--used:hover {
+  background-color: $green;
+  box-shadow: none;
+  cursor: not-allowed;
 }
 
 .reward__text {
@@ -287,12 +294,14 @@ a:hover {
 .task {
   border-radius: 0;
   border: $blue solid 2px;
-  box-shadow: inset 5em 0 0 0 $red;
-  padding: 10px 10px 0 100px;
+  box-shadow: inset 3.6em 0 0 0 $red;
+  padding: 1px 2px 0 13px;
   background-color: transparent;
   margin: 15px 15px 5px 15px;
-  display: block;
-  text-align: left;
+
+  p {
+    margin: 0;
+  }
 }
 
 .task:hover {
@@ -300,13 +309,52 @@ a:hover {
   transition: .4s ease-out;
 }
 
-.task--incomplete {
-  color: $blue;
+.task--completed {
+  background-color: $red;
+  box-shadow: none;
 }
 
-.task--completed {
-  color: black;
+.task__points {
+  padding-right: 5px;
+  font-size: .8em;
+  font-weight: bold;
+  text-align: right;
+}
+
+.task__name {
+  padding: 5px 5px 5px 2em;
+  font-size: .85em;
+  text-align: left;
+  font-weight: bold;
+  font-family: $font-header;
+  color: $blue
+}
+
+.task__name--completed {
   text-decoration: line-through;
+  font-weight: normal;
+  color: black
+}
+
+.task__checkbox {
+  padding-top: 5px;
+  font-size: x-large;
+}
+
+.task__checkbox:hover {
+  cursor: pointer;
+}
+
+.task__drag-icon {
+  padding-top: 5px;
+}
+
+.task__drag-icon:hover {
+  cursor: grab;
+}
+
+.task__drag-icon:active {
+  cursor: grabbing
 }
 
 .top-bar {
