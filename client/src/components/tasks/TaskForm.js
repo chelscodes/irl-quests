@@ -46,11 +46,11 @@ const TaskForm = (props) => {
   const translatedDifficulty = translateTaskDifficulty(newTask.difficulty)
 
   return (
-    <div className="form__section form__section--outline">
-      <div className="close-icon" onClick={() => {props.setShowTaskForm(false)}}>
+    <div className="form__section">
+      {/* <div className="close-icon" onClick={close}>
         <AiFillCloseCircle />
       </div>
-      <h4 className="header">Add a New Task</h4>
+      <h4 className="header">Add a New Task</h4> */}
       <form onSubmit={handleSubmit}>
         <label>
           Name

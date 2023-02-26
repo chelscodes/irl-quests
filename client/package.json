@@ -44,6 +44,7 @@
     "react-hot-loader": "^4.12.21",
     "react-icons": "^4.7.1",
     "react-router-dom": "5.2",
+    "reactjs-popup": "^2.0.5",
     "redbox-react": "~1.6",
     "sass-loader": "^6.0.7",
     "style-loader": "^1.2.1",

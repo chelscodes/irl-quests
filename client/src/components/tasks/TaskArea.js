@@ -3,13 +3,15 @@ import { DndContext, closestCenter } from '@dnd-kit/core';
 import { arrayMove } from '@dnd-kit/sortable';
 
 import TaskList from "./TaskList";
+import TaskForm from "./TaskForm";
+import FormPopup from "../layout/Popup";
 
-import renderTaskForm from "../../services/renderTaskForm";
+// import renderTaskForm from "../../services/renderTaskForm";
 import updateTaskStatus from "../../services/apiClient/updateTaskStatus";
 import deleteTask from "../../services/apiClient/deleteTask";
 
 const TaskArea = (props) => {
-  const [showTaskForm, setShowTaskForm] = useState(false)
+  // const [showTaskForm, setShowTaskForm] = useState(false)
   const { tasks, setTasks, questId } = props
 
   const completedTasks = tasks.filter((task) => {
@@ -19,13 +21,17 @@ const TaskArea = (props) => {
     return task.completed === false
   })
 
-  const taskFormProps = {
-    tasks: tasks,
-    setTasks: setTasks,
-    questId: questId,
-    setShowTaskForm: setShowTaskForm
-  }
-  const newTaskForm = renderTaskForm(showTaskForm, setShowTaskForm, taskFormProps)
+  // const taskFormProps = {
+  //   tasks: tasks,
+  //   setTasks: setTasks,
+  //   questId: questId,
+  //   setShowTaskForm: setShowTaskForm
+  // }
+  const newTaskForm = <TaskForm 
+      tasks={tasks} 
+      setTasks={setTasks} 
+      questId={questId}
+    />
   
   const handleToggle = async (taskId, completedStatus) => {
     const updatedCompletedStatus = !completedStatus
@@ -80,7 +86,8 @@ const TaskArea = (props) => {
           handleToggle={handleToggle}
           handleDelete={handleDelete}
         />
-        {newTaskForm}
+        {/* {newTaskForm} */}
+        <FormPopup popUpContent={newTaskForm} title={"Add a New Task"} />
       </div>
       <div>
         <TaskList 
