@@ -45,7 +45,7 @@ const TaskTile = (props) => {
         <div className="task__checkbox cell small-1" onClick={handleToggleClick}>
           {checkboxIcon}
         </div>
-        <div className="cell small-8 checkbox--hidden" onClick={handleToggleClick}>
+        <div className="cell small-8" onClick={handleToggleClick}>
           <p className={`task__name ${styleCompletedTaskName}`}>{name}</p>
         </div>
         <div className="cell small-2">
