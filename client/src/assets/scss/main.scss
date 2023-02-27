@@ -16,13 +16,15 @@
   tab-size: 4;
 }
 
-$primary: #3061E2;
+$primary: #2b57cb;
 $secondary: #F0EDE2;
 $success: #CFE4C5;
 $warning: #FABC3A;
 $alert: #FB8089;
 
+$dark-blue: #1d3a88;
 $blue: #3061E2;
+$light-blue: #3062e2ca;
 $tan: #F0EDE2;
 $light-tan: #f0ede283;
 $dark-green: #7FAE69;
@@ -230,12 +232,12 @@ a:hover {
   padding: 0;
 }
 
-.menu-text__app-name:hover {
-  color: $blue;
-}
-
 .menu-text__app-name:visited {
   color: black;
+}
+
+.menu-text__app-name:hover {
+  color: $dark-blue;
 }
 
 .quest-list-item {
@@ -258,7 +260,7 @@ a:hover {
 }
 
 .quest__description {
-  color: #3062e2ca;
+  color: $light-blue;
 }
 
 .reward {
@@ -278,8 +280,8 @@ a:hover {
   background-color: transparent;
   box-shadow: inset 0 -50px 0 0 $green;
   transition: .2s ease-out;
-  
   cursor: pointer;
+  
   .reward__text {
     color: black;
 
