@@ -3,7 +3,7 @@ import { Quest, User } from "../../models/index.js"
 class QuestSeeder {
   static async seed() {
     const user1 = await User.query().findOne({ email: "chels@email.com" })
-    const user2 = await User.query().findOne({ email: "cam@email.com" })
+    const user2 = await User.query().findOne({ email: "irl@quests.com" })
 
     const questsData = [
       {
@@ -17,8 +17,18 @@ class QuestSeeder {
         userId: user1.id,
       }, 
       {
-        name: "Mundane Mayhem",
-        description: "The mundane tasks of everyday life have been turned upside down. Take up the mantle of the Mundane Mayhem and restore order to the chaos.",
+        name: "Clean the house",
+        description: "Battle dirt and dust as you work towards earning the ultimate prize - a movie night!",
+        userId: user2.id,
+      },
+      {
+        name: "Finish work project",
+        description: "Take on the challenge of conquering the work to-do list, with a night out with friends as the reward!",
+        userId: user2.id,
+      },
+      {
+        name: "Learn to cook a new dish",
+        description: "Embark on a culinary adventure, complete with tutorials and trial-and-error, to earn the chance to try a new restaurant!",
         userId: user2.id,
       }
     ]
