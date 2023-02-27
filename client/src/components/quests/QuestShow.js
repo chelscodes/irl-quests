@@ -54,7 +54,12 @@ const QuestShow = (props) => {
           <TaskArea tasks={tasks} setTasks={setTasks} questId={questId} />
         </div>
         <div className="cell small-10 large-4 small-offset-1 large-offset-0">
-          <RewardArea rewards={rewards} setRewards={setRewards} questId={questId} currentPoints={currentPoints} />
+          <RewardArea 
+            rewards={rewards} 
+            setRewards={setRewards} 
+            questId={questId} 
+            currentPoints={currentPoints} 
+          />
         </div>
       </div>
     </div>
