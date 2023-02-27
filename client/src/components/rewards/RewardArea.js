@@ -10,7 +10,7 @@ import deleteReward from "../../services/apiClient/deleteReward"
 
 const RewardArea = (props) => {
   const [showRewardForm, setShowRewardForm] = useState(false)
-  const { rewards, setRewards, questId } = props
+  const { rewards, setRewards, questId, currentPoints } = props
 
   const usedRewards = rewards.filter((reward) => {
     return reward.used === true
@@ -75,10 +75,9 @@ const RewardArea = (props) => {
         <RewardList
           conditionalRewards={unusedRewards} 
           title={"Available"}
-          rewards={rewards} 
-          setRewards={setRewards} 
           handleToggle={handleToggle}
           handleDelete={handleDelete}
+          currentPoints={currentPoints}
         />
         {newRewardForm}
       </div>

@@ -49,7 +49,7 @@ const TaskTile = (props) => {
           <p className={`task__name ${styleCompletedTaskName}`}>{name}</p>
         </div>
         <div className="cell small-2">
-          <p className={`task__points ${stylePointsColor}`}>{points}pts</p>
+          <p className={`task__points ${stylePointsColor}`}>+{points}pts</p>
         </div>
         <div className="task__drag-icon cell small-1" {...attributes} {...listeners}>
           <MdDragIndicator />

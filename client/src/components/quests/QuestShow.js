@@ -46,13 +46,15 @@ const QuestShow = (props) => {
     <div className="text-center">
       <h2 className="header header--quest-title">{quest.name}</h2>
       <p>current reward pts: <span className="bold--yellow">{currentPoints}</span></p>
-      <p className="quest__description">{quest.description}</p>
+      <div className="grid-x">
+        <p className="cell large-4 large-offset-4 quest__description">{quest.description}</p>
+      </div>
       <div className="grid-x grid-margin-x">
         <div className="cell small-10 large-4 small-offset-1 large-offset-2">
           <TaskArea tasks={tasks} setTasks={setTasks} questId={questId} />
         </div>
         <div className="cell small-10 large-4 small-offset-1 large-offset-0">
-          <RewardArea rewards={rewards} setRewards={setRewards} questId={questId} />
+          <RewardArea rewards={rewards} setRewards={setRewards} questId={questId} currentPoints={currentPoints} />
         </div>
       </div>
     </div>

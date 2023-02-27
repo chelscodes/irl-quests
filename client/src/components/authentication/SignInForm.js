@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import FormValidations from "../../services/FormValidations";
 import FormError from "../layout/FormError";
 
@@ -76,6 +77,7 @@ const SignInForm = () => {
         <div className="text-center">
           <input type="submit" className="button" value="Sign In" />
         </div>
+        <p className="text-center"><Link to="/users/new">Don't have an account? Register</Link></p>
       </form>
     </div>
   );

@@ -16,7 +16,6 @@
   tab-size: 4;
 }
 
-$header-image-path: "../images/nature.jpeg";
 $primary: #3061E2;
 $secondary: #F0EDE2;
 $success: #CFE4C5;
@@ -25,6 +24,8 @@ $alert: #FB8089;
 
 $blue: #3061E2;
 $tan: #F0EDE2;
+$light-tan: #f0ede283;
+$dark-green: #7FAE69;
 $green: #CFE4C5;
 $orange: #FABC3A;
 $light-orange: #fabd3a86;
@@ -33,6 +34,8 @@ $red: #FB8089;
 $font-logo: 'Abril Fatface', sans-serif;
 $font-header: 'Space Grotesk', sans-serif;
 $font-body: 'Montserrat', sans-serif;
+
+$border-radius-px: 4px;
 
 body {
   font-family: $font-body;
@@ -111,7 +114,21 @@ a:hover {
 }
 
 .chart-time-range {
-  height: 350px;
+  height: 70%;
+  min-height: 400px;
+  max-height: 400px;
+  width: 100%;
+  background-color: white;
+  color: $blue;
+  border-radius: $border-radius-px;
+  margin-bottom: 20px;
+
+  h6 {
+    text-align: left;
+    padding: 10px 7px;
+    font-weight: bold;
+    color: black;
+  }
 }
 
 .close-icon {
@@ -131,9 +148,9 @@ a:hover {
 }
 
 .form__section--outline {
-  padding: 20px;
+  padding: 20px 20px 20px 20px;
   border-width: 1px;
-  border-radius: 20px;
+  border-radius: $border-radius-px;
   border: $orange solid 2px;
 }
 
@@ -154,6 +171,7 @@ a:hover {
 
 .landing__header {
   justify-items: center;
+  background-color: white;
 }
 
 .landing__header-text {
@@ -175,11 +193,13 @@ a:hover {
 
 .landing__middle {
   background-color: $tan;
-  height: 300px;
+  padding: 50px 0;
+  text-align: justify;
 }
 
 .list {
   border: $blue 1px solid;
+  border-radius: $border-radius-px;
   padding: 20px 20px 40px 20px;
   background-color: white;
 }
@@ -195,11 +215,11 @@ a:hover {
 }
 
 .menu .button {
-  padding: 0.1rem 1rem 0.3rem 1rem;
-  font-family: $font-logo;
-  font-weight: lighter;
+  padding: 0.4rem 1rem 0.5rem 1rem;
+  font-family: $font-header;
+  font-weight: normal;
   font-size: 16px;
-  letter-spacing: 1px;
+  border-radius: $border-radius-px;
 }
 
 .menu-text__app-name {
@@ -210,12 +230,16 @@ a:hover {
   padding: 0;
 }
 
+.menu-text__app-name:hover {
+  color: $blue;
+}
+
 .menu-text__app-name:visited {
   color: black;
 }
 
 .quest-list-item {
-  border-radius: 0;
+  border-radius: $border-radius-px;
   border: $blue solid 2px;
   padding: 20px;
   margin: 15px 15px 0 15px;
@@ -234,15 +258,14 @@ a:hover {
 }
 
 .quest__description {
-  margin: 2em 12em;
-  color: #3062e2a1;
+  color: #3062e2ca;
 }
 
 .reward {
-  border-radius: 0;
   border: $blue solid 2px;
+  border-radius: $border-radius-px;
   box-shadow: inset 0 -6px 0 $green;
-  padding: 3px 2px 5px 10px;
+  padding: 0 0 2px 5px;
   background-color: transparent;
   margin: 15px 15px 5px 15px;
 
@@ -255,15 +278,29 @@ a:hover {
   background-color: transparent;
   box-shadow: inset 0 -50px 0 0 $green;
   transition: .2s ease-out;
+  
   cursor: pointer;
+  .reward__text {
+    color: black;
+
+    span {
+      color: black
+    }
+  }
 }
 
 .reward--used {
   background-color: $green;
-  border-radius: 0;
-  border: $blue solid 2px;
-  padding: 3px 2px 5px 10px;
+  border-radius: $border-radius-px;
+  border: black solid 2px;
+  padding: 5px 2px 8px 10px;
   margin: 15px 15px 5px 15px;
+
+  .reward__text {
+    color: black;
+    text-decoration: line-through;
+    font-weight: normal;
+  }
 }
 
 .reward--used:hover {
@@ -272,27 +309,92 @@ a:hover {
   cursor: not-allowed;
 }
 
+.reward--locked {
+  background-color: $tan;
+  border: black solid 2px;
+  box-shadow: none;
+
+  .reward__text {
+    color: black;
+    font-weight: normal;
+
+    span {
+      color: black;
+      font-weight: normal;
+    }
+  }
+}
+
+.reward--locked:hover {
+  background-color: $tan;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.reward--locked-icon {
+  padding-top: 5px;
+  font-size: x-large; 
+}
+
 .reward__text {
   margin: 0px;
-  color: black
+  padding: 0 0 0 5px;
+  font-size: .85em;
+  font-weight: bold;
+  font-family: $font-header;
+  color: $blue;
+  text-align: left;
+
+  span {
+    color: $orange;
+    font-weight: bold;
+    padding: 0px 5px;
+  }
+}
+
+.reward__drag-icon {
+  padding-top: 5px;
+}
+
+.reward__points {
+  padding-right: 5px;
+  font-size: .8em;
+  font-weight: bold;
+  text-align: right;
 }
 
 .subheader {
-  color: $blue
+  color: $blue;
 }
 
-.summary {
-  margin: 1em 1em 1.5em 1em;
-  font-size: 55px;
+.summary__header {
+  padding: 1em 1em .2em 1em;
+  font-size: 40px;
+  letter-spacing: .1em;
+
+  span {
+    color: black;
+    font-size: 30px;
+    width: 75px;
+    height: 75px
+  }
 }
 
 .summary__body {
-  padding: 50px 0;
+  margin: 30px 0;
+  padding: 40px 10px;
   background-color: $tan;
+
+  .subheader span {
+    font-size: 20px;
+    padding: 8px 10px;
+    border: #3061E2 solid 2px;
+    border-radius: 50%;
+  }
 }
 
 .task {
-  border-radius: 0;
+  border-radius: $border-radius-px;
   border: $blue solid 2px;
   box-shadow: inset 3.6em 0 0 0 $red;
   padding: 1px 2px 0 13px;
@@ -307,11 +409,19 @@ a:hover {
 .task:hover {
   box-shadow: inset 600px 0 0 0 $red;
   transition: .4s ease-out;
+  
+  .task__name {
+    color: black
+  }
+  .task__points {
+    color: black
+  }
 }
 
 .task--completed {
   background-color: $red;
   box-shadow: none;
+  border: black solid 2px;
 }
 
 .task__points {
@@ -358,7 +468,8 @@ a:hover {
 }
 
 .top-bar {
-  margin: 0 20px;
+  padding: 10px 20px;
+  width: 100%;
 }
 
 .top-bar, .top-bar ul{
