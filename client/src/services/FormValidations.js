@@ -4,7 +4,7 @@ class FormValidations {
   
   static registrationForm(formInput) {
     const { email, username, password, passwordConfirmation } = formInput;
-    const emailRegexp = config.validation.email.regexp;
+    const emailRegexp = config.validation.email.regexp.emailRegex;
     let newErrors = {};
     if (!email.match(emailRegexp)) {
       newErrors = {
@@ -46,7 +46,7 @@ class FormValidations {
 
   static signInForm(formInput) {
     const { email, password } = formInput;
-    const emailRegexp = config.validation.email.regexp;
+    const emailRegexp = config.validation.email.regexp.emailRegex;
     let newErrors = {};
     if (!email.match(emailRegexp)) {
       newErrors = {

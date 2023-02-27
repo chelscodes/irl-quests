@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import DataVisTimeRange from "./DataVisTimeRange"
 import QuestForm from "./quests/QuestForm"
 import QuestList from "./quests/QuestList"
+import { FiUser } from "react-icons/fi"
+import translateCompletedQuests from "../services/translateCompletedQuests"
 
 const UserSummary = (props) => {
   const [quests, setQuests] = useState([])
@@ -16,7 +18,8 @@ const UserSummary = (props) => {
         throw(error)
       }
       const body = await response.json()
-      setUserStats({timeRangeTasksCompleted: body.userSummary.stats})
+      const stats = body.userSummary.stats
+      setUserStats({...stats})
       setQuests(body.userSummary.quests)
     } catch (error) {
       console.error(`Fetch didn't happen: ${error.message}`)
@@ -34,7 +37,7 @@ const UserSummary = (props) => {
   let newQuestToggle
   if (!showQuestForm) {
     newQuestToggle = <button type="button"
-      className="button button__shadow button__shadow--blue"
+      className="text-center button button__shadow button__shadow--blue"
       onClick={toggleQuestForm}>
         Add Quest
       </button>
@@ -49,19 +52,36 @@ const UserSummary = (props) => {
   const username = props.user?.username
   
   let dataVisualizationComponent
+  let completedQuestsMessage
   if (userStats) {
-    dataVisualizationComponent = <DataVisTimeRange userStats={userStats.timeRangeTasksCompleted} />
+    completedQuestsMessage = translateCompletedQuests(userStats.questsCompleted) 
+    dataVisualizationComponent = <DataVisTimeRange 
+      tasksTimeRange={userStats.tasksTimeRange} 
+      totalTasks={userStats.tasksCompleted} 
+    />
   }
 
   return (
     <>
-      <h2 className="header text-center summary">Summary</h2>
+      <div className="grid-x grid-margin-x">
+        <h2 className="header summary__header cell small-10 large-offset-1">
+          WELCOME BACK
+        </h2>
+      </div>
       <div className="grid-x grid-margin-x summary__body">
-        <div className="cell small-12 medium-4 large-3 small-offset-2 large-offset-2">
-          <h4 className="subheader">Welcome back, {username}!</h4>
+        <div className="cell small-10 large-4 small-offset-1 large-offset-1">
+          <div className="grid-x grid-margin-x subheader">
+            <div className="cell small-2">
+              <span><FiUser /></span> 
+            </div>
+            <div className="cell small-9">
+              <h4>Hi, {username}!</h4>
+              <p>{completedQuestsMessage}</p>
+            </div>
+          </div>
           {dataVisualizationComponent}
         </div>
-        <div className="cell small-12 medium-5 large-4 large-offset-1">
+        <div className="cell small-10 large-4 small-offset-1 large-offset-2">
           <QuestList quests={quests} setQuests={setQuests} />
           {newQuestToggle}
         </div>

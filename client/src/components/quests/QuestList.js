@@ -21,7 +21,7 @@ const QuestList = (props) => {
 
   return (
     <div className="list">
-      <h3 className="header list__header text-center">QUESTS</h3>
+      <h3 className="header list__header text-center">ACTIVE QUESTS</h3>
       {questTiles}
     </div>
   )

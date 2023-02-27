@@ -11,7 +11,7 @@ const QuestTile = (props) => {
       <div className="quest-list-item">
         <Link to={`/quests/${id}`} >{name}</Link>
       </div>
-      <div className="grid-x grid-margin-x section__modify-buttons">
+      <div className="grid-x section__modify-buttons">
         <button className="cell button__delete" onClick={handleDeleteClick}>delete</button>
       </div>
     </>

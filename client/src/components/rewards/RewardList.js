@@ -5,8 +5,8 @@ import RewardTile from "./RewardTile"
 
 
 const RewardList = (props) => {
-  const { conditionalRewards, handleToggle, handleDelete } = props
-
+  const { conditionalRewards, handleToggle, handleDelete, currentPoints } = props
+  
   const rewardTiles = conditionalRewards.map((reward) => {
     return (
       <RewardTile
@@ -14,7 +14,7 @@ const RewardList = (props) => {
         reward={reward}
         handleToggle={handleToggle}
         handleDelete={handleDelete}
-        currentPoints={props.currentPoints}
+        currentPoints={currentPoints}
       />
     )
   })

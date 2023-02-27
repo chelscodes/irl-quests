@@ -15,7 +15,7 @@ usersRouter.get("/user-summary", async (req, res) => {
       const serializedQuest = QuestSerializer.getName(quest)
       return serializedQuest
     })
-    const stats = await UserStats.getTimeRangeStatsForTasks(user)
+    const stats = await UserStats.getSummary(user, quests)
     const userSummary = { quests: serializedQuests, stats: stats }
     return res.status(200).json({ userSummary })
   } catch (error) {
