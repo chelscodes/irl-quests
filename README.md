@@ -2,6 +2,10 @@
 
 irlQuests aims to make a boring task list into a fun quest! A user provides their list of tasks and a few rewards that will keep them motivated. As they knock out their to-do's, they earn points and unlock rewards.
 
+Visit the deployed application here: https://irl-quests.herokuapp.com/
+
+To explore, make an account or use the following credentials to see an example. (email `irl@quests.com` / password `fun`)
+
 
 ## Features
 **User Authentication**
