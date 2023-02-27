@@ -9,9 +9,9 @@ class UserSeeder {
         password: "password"
       },
       {
-        email: "cam@email.com",
-        username: "Cam",
-        password: "12345"
+        email: "irl@quests.com",
+        username: "Chelsea",
+        password: "fun"
       }
     ]
 

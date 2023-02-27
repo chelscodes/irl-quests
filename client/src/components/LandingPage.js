@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import exampleQuestShow from "../assets/images/exampleQuestShow.png"
+
 const LandingPage = (props) => {
 
   return (
@@ -21,7 +23,10 @@ const LandingPage = (props) => {
         </div>
       </div>
       <div className="landing__middle grid-x grid-padding-x">
-        <div className="cell small-6 small-offset-5">
+        <div className="cell large-3 large-offset-2">
+          <img src={exampleQuestShow} alt="example of a quest page" />
+        </div>
+        <div className="cell large-5 large-offset-1">
           <p>Creating a quest is easy! Sign up or log in, name your quest, and add tasks and corresponding rewards. <br/><br/>As you complete tasks, your points will accumulate, and you'll be able to unlock rewards that you've set for yourself. With real-time updates, you can track your progress, stay on top of your tasks, and earn rewards that will keep you motivated to complete even more. <br/><br/>Start your adventure today and turn your mundane tasks into epic accomplishments!</p>
         </div>
       </div>
