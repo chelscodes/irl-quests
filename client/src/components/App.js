@@ -10,9 +10,9 @@ import TopBar from "./layout/TopBar";
 import Footer from "./layout/Footer";
 import AuthenticatedRoute from "./authentication/AuthenticatedRoute"
 
-import QuestShow from "./QuestShow";
-import QuestForm from "./QuestForm";
+import QuestShow from "./quests/QuestShow";
 import LandingPage from "./LandingPage";
+import UserSummary from "./UserSummary";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -38,8 +38,8 @@ const App = (props) => {
         <Route exact path="/user-sessions/new" component={SignInForm} />
         <AuthenticatedRoute 
           exact={true}
-          path="/quests/new"
-          component={QuestForm}
+          path="/user-summary"
+          component={UserSummary}
           user={currentUser}
         />
         <Route exact path="/quests/:id" component={QuestShow} />

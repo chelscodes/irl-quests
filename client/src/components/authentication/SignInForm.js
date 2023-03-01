@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import FormValidations from "../../services/FormValidations";
 import FormError from "../layout/FormError";
 
@@ -17,27 +18,30 @@ const SignInForm = () => {
     setErrors({})
     const potentialErrors = FormValidations.signInForm(userPayload)
     setErrors(potentialErrors)
-    try {
-      if (Object.keys(potentialErrors).length === 0) {
-        const response = await fetch("/api/v1/user-sessions", {
-          method: "post",
-          body: JSON.stringify(userPayload),
-          headers: new Headers({
-            "Content-Type": "application/json",
+
+    if (Object.keys(potentialErrors).length === 0) {
+      try {
+          const response = await fetch("/api/v1/user-sessions", {
+            method: "post",
+            body: JSON.stringify(userPayload),
+            headers: new Headers({
+              "Content-Type": "application/json",
+            })
           })
-        })
-        if(!response.ok) {
-          const errorMessage = `${response.status} (${response.statusText})`
-          const error = new Error(errorMessage)
-          throw(error)
-        }
-        const userData = await response.json()
-        setShouldRedirect(true)
+          if(!response.ok) {
+            const errorMessage = `${response.status} (${response.statusText})`
+            const error = new Error(errorMessage)
+            throw(error)
+          }
+          const userData = await response.json()
+          setShouldRedirect(true)
+
+      } catch(err) {
+        console.error(`Error in fetch: ${err.message}`)
+        setErrors({noMatch: "Unable to sign in. Be sure to use the email and password you used to register."})
       }
-    } catch(err) {
-      console.error(`Error in fetch: ${err.message}`)
     }
-  }
+}
 
   const onInputChange = (event) => {
     setUserPayload({
@@ -47,7 +51,7 @@ const SignInForm = () => {
   };
 
   if (shouldRedirect) {
-    location.href = "/";
+    location.href = "/user-summary";
   }
 
   return (
@@ -73,9 +77,11 @@ const SignInForm = () => {
             <FormError error={errors.password} />
           </label>
         </div>
+        <FormError error={errors.noMatch} />
         <div className="text-center">
           <input type="submit" className="button" value="Sign In" />
         </div>
+        <p className="text-center"><Link to="/users/new">Don't have an account? Register</Link></p>
       </form>
     </div>
   );

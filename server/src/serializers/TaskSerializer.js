@@ -1,5 +1,7 @@
+import { format } from "date-fns"
+
 class TaskSerializer {
-  static async getSummary(task) {
+  static getSummary(task) {
     const allowedAttributes = ["id", "name", "difficulty", "completed"]
 
     let serializedTask = {}
@@ -8,6 +10,12 @@ class TaskSerializer {
     }
 
     return serializedTask
+  }
+
+  static getFormattedUpdatedAt(task) {
+    const updatedAtDate = task["updatedAt"]
+    const formattedUpdatedAt = format(updatedAtDate, "yyyy-MM-dd")
+    return formattedUpdatedAt
   }
 }
 

@@ -9,12 +9,15 @@ const TopBar = ({ user }) => {
     </li>,
     <li key="sign-up">
       <Link to="/users/new" className="button">
-        Sign Up
+        Get Started
       </Link>
     </li>,
   ];
 
   const authenticatedListItems = [
+    <li key="user-summary">
+      <Link to="/user-summary">Profile</Link>
+    </li>,
     <li key="sign-out">
       <SignOutButton />
     </li>,
@@ -24,9 +27,8 @@ const TopBar = ({ user }) => {
     <div className="top-bar">
       <div className="top-bar-left">
         <ul className="menu">
-          <li className="menu-text app-name">irlQuests</li>
-          <li>
-            <Link to="/">Home</Link>
+          <li className="menu-text">
+            <Link to="/" className="menu-text__app-name">irlQuests</Link>
           </li>
         </ul>
       </div>
