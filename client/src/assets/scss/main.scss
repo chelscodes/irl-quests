@@ -43,6 +43,10 @@ body {
   font-family: $font-body;
 }
 
+#app {
+  min-height: 100vh;
+}
+
 a:hover {
   color: black
 }
@@ -140,6 +144,21 @@ a:hover {
 .close-icon:hover {
   color: $red;
   cursor: pointer;
+}
+
+.footer {
+  background-color: $dark-blue;
+  color: white;
+  margin-top: 11em;
+  padding: 75px;
+
+  a {
+    color: white
+  }
+
+  a:hover {
+    color: $orange
+  }
 }
 
 .form__section {
