@@ -43,6 +43,10 @@ body {
   font-family: $font-body;
 }
 
+#app {
+  min-height: 100vh;
+}
+
 a:hover {
   color: black
 }
@@ -143,10 +147,18 @@ a:hover {
 }
 
 .footer {
-  background-color: $blue;
+  background-color: $dark-blue;
   color: white;
-  margin: 50px 0;
-  padding: 50px;
+  margin-top: 11em;
+  padding: 75px;
+
+  a {
+    color: white
+  }
+
+  a:hover {
+    color: $orange
+  }
 }
 
 .form__section {

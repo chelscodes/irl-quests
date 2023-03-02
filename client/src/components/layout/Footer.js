@@ -1,14 +1,23 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { FaGithub, FaLinkedin } from "react-icons/fa"
 
 const Footer = (props) => {
 
   return (
     <div className="footer">
       <ul className="menu simple align-center">
-        <li>Footer</li>
         <li>
-          <Link to="/">About the Developer</Link>
+          <a href="https://www.linkedin.com/in/chelsea-elizabeth-smith/">
+            <FaLinkedin />
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/chelscodes">
+            <FaGithub />
+          </a>
+        </li>
+        <li>
+          Developed By Chelsea Smith
         </li>
       </ul>
     </div>
