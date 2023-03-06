@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
+import { TiArrowBack } from "react-icons/ti"
 import TaskArea from "../tasks/TaskArea"
 import RewardArea from "../rewards/RewardArea"
 
@@ -44,8 +46,17 @@ const QuestShow = (props) => {
   
   return (
     <div className="text-center">
-      <h2 className="header header--quest-title">{quest.name}</h2>
-      <p>current reward pts: <span className="bold--yellow">{currentPoints}</span></p>
+      <div className="grid-x">
+        <div className="cell medium-1 hide-for-small-only back-icon">
+          <Link to="/user-summary">
+            <TiArrowBack /> Back
+          </Link>
+        </div>
+        <div className="cell medium-10">
+          <h2 className="header header--quest-title">{quest.name}</h2>
+          <p>current reward pts: <span className="bold--yellow">{currentPoints}</span></p>
+        </div>
+      </div>
       <div className="grid-x">
         <p className="cell large-4 large-offset-4 quest__description">{quest.description}</p>
       </div>

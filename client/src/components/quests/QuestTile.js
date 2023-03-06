@@ -8,9 +8,11 @@ const QuestTile = (props) => {
 
   return (
     <>
-      <div className="quest-list-item">
-        <Link to={`/quests/${id}`} >{name}</Link>
-      </div>
+      <Link to={`/quests/${id}`} >
+        <div className="quest-list-item">
+          {name}
+        </div>
+      </Link>
       <div className="grid-x section__modify-buttons">
         <button className="cell button__delete" onClick={handleDeleteClick}>delete</button>
       </div>
