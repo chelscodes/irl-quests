@@ -74,7 +74,7 @@ const QuestForm = (props) => {
         />
         <button 
           type="button"
-          className="button button__shadow button__shadow--blue"
+          className="button__delete"
           onClick={clearForm}
         >Clear</button>
       </form>
