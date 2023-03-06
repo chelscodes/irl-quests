@@ -38,6 +38,7 @@ $font-header: 'Space Grotesk', sans-serif;
 $font-body: 'Montserrat', sans-serif;
 
 $border-radius-px: 4px;
+$button-border-radius-px: 2px;
 
 body {
   font-family: $font-body;
@@ -58,35 +59,28 @@ a:hover {
 }
 
 .button {
-  border-radius: 20px;
-  border: black solid 1px;
+  padding: 0.5rem 1rem;
+  border-radius: $button-border-radius-px;
+  border: 2px solid black;
   font-family: $font-header;
   font-weight: bold;
-  padding: 0.5rem 1rem;
 }
 
 .button:hover {
-  background-color: black;
+  background-color: $orange;
+  color: black;
+  box-shadow: none;
 }
 
 .button__shadow {
-  border-radius: 2px;
   background-color: $orange;
   color: black;
-  font-weight: bolder;
   box-shadow: -3px -3px black;
-  border: 2px solid black;
   margin: 15px;
   
   a {
     color: black;
   }
-}
-
-.button__shadow:hover {
-  background-color: $orange;
-  color: black;
-  box-shadow: none;
 }
 
 .button__shadow--blue {
@@ -234,14 +228,11 @@ a:hover {
 
 .menu {
   align-items: center;
-}
-
-.menu .button {
-  padding: 0.4rem 1rem 0.5rem 1rem;
-  font-family: $font-header;
-  font-weight: normal;
-  font-size: 16px;
-  border-radius: $border-radius-px;
+  
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 16px;
+  }
 }
 
 .menu-text__app-name {
