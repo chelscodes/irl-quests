@@ -37,7 +37,7 @@ const UserSummary = (props) => {
   let newQuestToggle
   if (!showQuestForm) {
     newQuestToggle = <button type="button"
-      className="text-center button button__shadow button__shadow--blue"
+      className="button button__shadow button__shadow--blue"
       onClick={toggleQuestForm}>
         Add Quest
       </button>
@@ -81,7 +81,7 @@ const UserSummary = (props) => {
           </div>
           {dataVisualizationComponent}
         </div>
-        <div className="cell small-10 large-4 small-offset-1 large-offset-2">
+        <div className="cell small-10 large-4 small-offset-1 large-offset-2 text-center">
           <QuestList quests={quests} setQuests={setQuests} />
           {newQuestToggle}
         </div>
