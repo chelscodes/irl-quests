@@ -1,7 +1,6 @@
-import config from "../config";
+import config from "../config"
 
 class FormValidations {
-  
   static registrationForm(formInput) {
     const { email, username, password, passwordConfirmation } = formInput;
     const emailRegexp = config.validation.email.regexp.emailRegex;
@@ -12,21 +11,18 @@ class FormValidations {
         email: "is invalid",
       };
     }
-    
     if (username.trim() === "") {
       newErrors = {
         ...newErrors,
         username: "is required",
       };
     }
-    
     if (password.trim() === "") {
       newErrors = {
         ...newErrors,
         password: "is required",
       };
     }
-    
     if (passwordConfirmation.trim() === "") {
       newErrors = {
         ...newErrors,
@@ -54,7 +50,6 @@ class FormValidations {
         email: "is invalid",
       };
     }
-    
     if (password.trim() === "") {
       newErrors = {
         ...newErrors,

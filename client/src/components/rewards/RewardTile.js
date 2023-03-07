@@ -1,11 +1,11 @@
-import React from "react";
-import { useSortable } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
+import React from "react"
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 
-import { MdDragIndicator } from "react-icons/md";
+import { MdDragIndicator } from "react-icons/md"
 import { FiLock, FiUnlock } from "react-icons/fi"
 
-import getRewardPoints from "../../services/getRewardPoints"
+import Points from "../../services/Points"
 
 const RewardTile = (props) => {
   const { id, name, motivationLevel, used } = props.reward
@@ -23,7 +23,7 @@ const RewardTile = (props) => {
     transition
   }
 
-  const points = getRewardPoints(motivationLevel)
+  const points = Points.getRewardPoints(motivationLevel)
   const handleClick = () => handleToggle(id, used)
   const handleDeleteClick = () => handleDelete(id)
 
