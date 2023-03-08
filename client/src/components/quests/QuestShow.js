@@ -5,7 +5,7 @@ import { TiArrowBack } from "react-icons/ti"
 import TaskArea from "../tasks/TaskArea"
 import RewardArea from "../rewards/RewardArea"
 
-import getQuestCurrentPoints from "../../services/getQuestCurrentPoints"
+import Points from "../../services/Points"
 
 
 const QuestShow = (props) => {
@@ -39,7 +39,7 @@ const QuestShow = (props) => {
     getQuestData()
   }, [])
 
-  const calculatedPoints = getQuestCurrentPoints(tasks, rewards)
+  const calculatedPoints = Points.getQuestCurrentPoints(tasks, rewards)
   if (calculatedPoints !== currentPoints) {
     setCurrentPoints(calculatedPoints)
   }

@@ -1,11 +1,11 @@
-import React from "react";
-import { useSortable } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
+import React from "react"
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 
-import { MdDragIndicator } from "react-icons/md";
+import { MdDragIndicator } from "react-icons/md"
 import { FiSquare, FiCheckSquare } from "react-icons/fi"
 
-import getTaskPoints from "../../services/getTaskPoints";
+import Points from "../../services/Points"
 
 
 const TaskTile = (props) => {
@@ -35,7 +35,7 @@ const TaskTile = (props) => {
     stylePointsColor = ""
   }
 
-  const points = getTaskPoints(difficulty)
+  const points = Points.getTaskPoints(difficulty)
   const handleToggleClick = () => handleToggle(id, completed)
   const handleDeleteClick = () => handleDelete(id)
 
